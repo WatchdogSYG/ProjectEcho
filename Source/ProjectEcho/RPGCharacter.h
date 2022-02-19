@@ -14,21 +14,44 @@
 
 
 UCLASS()
-class PROJECTECHO_API ARPGCharacter : public ACharacter
-{
+class PROJECTECHO_API ARPGCharacter : public ACharacter {
+
 	GENERATED_BODY()
 
 public:
+	////////////////////////////////////////////////////////////////
+	//  CONSTRUCTORS
+	////////////////////////////////////////////////////////////////
+
+	ARPGCharacter();
+
+	////////////////////////////////////////////////////////////////
+	//  COMPONENTS
+	////////////////////////////////////////////////////////////////
+
+	//The main camera for this character. TODO: ThirdPerson gimbal implementation.
 	UCameraComponent* camera;
 
-	// Sets default values for this character's properties
-	ARPGCharacter();
+	////////////////////////////////////////////////////////////////
+	//  USER INTERFACE & WIDGETS
+	////////////////////////////////////////////////////////////////
+
+	UPROPERTY(EditAnywhere, Category = "User Interface")
+		TSubclassOf<UUserWidget> StatBar;
 
 	UUIHUD* HealthBar;
 
+	////////////////////////////////////////////////////////////////
+	//  CHARACTER STATS
+	////////////////////////////////////////////////////////////////
+
 	UPROPERTY(BlueprintReadWrite, Category = "STATS");
-	float health{ 100.f };
-	
+	float Health{ 100.f };
+
+	////////////////////////////////////////////////////////////////
+	//  BOUND FUNCTIONS
+	////////////////////////////////////////////////////////////////
+
 	UFUNCTION()
 		void MoveForward(float magnitude);
 
@@ -44,6 +67,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void KeyRight();
 
+	////////////////////////////////////////////////////////////////
+	//  OTHER FUNCTIONS
+	////////////////////////////////////////////////////////////////
+
 	UFUNCTION()
 		float GetHealth();
 
@@ -56,9 +83,6 @@ public:
 	UFUNCTION()
 		float ReceiveHealing(float healing);
 
-	UPROPERTY(EditAnywhere, Category = "User Interface")
-		TSubclassOf<UUserWidget> StatBar;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -69,5 +93,4 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 };

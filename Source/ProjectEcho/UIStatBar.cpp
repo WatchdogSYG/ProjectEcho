@@ -5,6 +5,10 @@
 
 #include "Components/TextBlock.h"
 
+//UUIStatBar::UUIStatBar() {
+
+//}
+
 void UUIStatBar::InterpProgress(float newHealth) {
 	pb_primary->Percent = 0.20;
 	valueDisplay->SetText(FText::AsNumber(newHealth));
@@ -13,6 +17,4 @@ void UUIStatBar::InterpProgress(float newHealth) {
 void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 	Super::NativeTick(MyGeometry, DeltaTime);
 	 
-	check(GEngine != nullptr);
-	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("WidgetTick"));
 }

@@ -16,6 +16,9 @@ class PROJECTECHO_API UUIStatBar : public UUserWidget {
 	GENERATED_BODY()
 
 public:
+
+	//UUIStatBar();
+
 	float CurrentPct;
 	float TargetPct;
 	float InterpTime;

@@ -1,5 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+////////////////////////////////////////////////////////////////
+//  NOTES
+////////////////////////////////////////////////////////////////
+// Tutorial used for initial Character skeleton code.
+//https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/CPPTutorials/FirstPersonShooter/2/
 
 #include "RPGCharacter.h"
 #include "Math/Rotator.h"
@@ -7,32 +12,42 @@
 #include "UIStatBar.h"
 #include "UIHUD.h"
 
+////////////////////////////////////////////////////////////////
+//  CONSTRUCTORS
+////////////////////////////////////////////////////////////////
 
-//https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/CPPTutorials/FirstPersonShooter/2/
-
-// Sets default values
 ARPGCharacter::ARPGCharacter() {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+////////////////////////////////////////////////////////////////
+//  ACTOR FUNCTIONS
+////////////////////////////////////////////////////////////////
+
 // Called when the game starts or when spawned
 void ARPGCharacter::BeginPlay() {
+
 	Super::BeginPlay();
 
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter BeginPlay"));
+
+	//Initialise Camera
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Initialise CameraComponent3P"));
 	camera = Cast<UCameraComponent>(GetDefaultSubobjectByName(TEXT("CameraComponent3P")));
 
+	//Initialise User Interface (HUD)
 	//why GetWorld() ???
 	//https://forums.unrealengine.com/t/cannot-create-widget-using-c/451606
 
+	//Create a type-safe HUD class and add it to the viewport
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Create Widget UIHealthBar"));
 	HealthBar = Cast<UUIHUD>(CreateWidget(GetWorld(), StatBar, "UIHealthBar"));
 
 	if (HealthBar == nullptr) {
-		check(GEngine != nullptr);
-		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("HealthBar is null*"));
+		UE_LOG(LogTemp, Warning, TEXT("ARPGCharacter	HealthBar UUIHUD == nullptr"));
 	} else {
-		check(GEngine != nullptr);
-		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("Added to viewport"));
+		UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Add HealthBar to Viewport"));
 		HealthBar->AddToViewport();
 	}
 }
@@ -44,6 +59,7 @@ void ARPGCharacter::Tick(float DeltaTime) {
 
 // Called to bind functionality to input
 void ARPGCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
+
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	PlayerInputComponent->BindAxis(
@@ -79,6 +95,10 @@ void ARPGCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 		&ARPGCharacter::KeyRight);
 }
 
+////////////////////////////////////////////////////////////////
+//  OTHER MEMBER FUNCTIONS
+////////////////////////////////////////////////////////////////
+
 void ARPGCharacter::MoveForward(float magnitude) {
 	FVector dir = this->GetActorForwardVector();
 	AddMovementInput(dir, magnitude);
@@ -90,42 +110,41 @@ void ARPGCharacter::MoveRight(float magnitude) {
 }
 
 void ARPGCharacter::MouseUp(float magnitude) {
-
-
+	//For now, this controls the pitch of the camera as a way of aiming the 3P camera about the lateral axis.
 	camera->SetWorldRotation(camera->GetComponentRotation().Add(magnitude, 0, 0));
-
-	//check(GEngine != nullptr);
-	//GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, FString::SanitizeFloat(magnitude) + camera->GetComponentRotation().ToCompactString());
 }
 
 void ARPGCharacter::KeyLeft() {
-	SetHealth(GetHealth() - 5);
-	check(GEngine != nullptr);
-	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("LEFT"));
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter pressed LEFTKEY"));
+	HealthBar->GetBar()->InterpProgress(TakeDamage(7));
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Health = %4.0f"), Health);
 }
 
 void ARPGCharacter::KeyRight() {
-	HealthBar->GetBar()->InterpProgress(TakeDamage(10));
-	check(GEngine != nullptr);
-	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("DeltaHealth=" + FString::SanitizeFloat(health)));
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter pressed RIGHTKEY"));
+	HealthBar->GetBar()->InterpProgress(ReceiveHealing(10));
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Health = %4.0f"), Health);
 }
 
 float ARPGCharacter::GetHealth() {
-	return health;
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter GetHealth() : %4.2f"), Health);
+	return Health;
 }
 
 void ARPGCharacter::SetHealth(float h) {
-	health = h;
+	Health = h;
 }
 
 float ARPGCharacter::TakeDamage(float damage) {
-	float newHealth = health - damage;
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter takes %4.0f damage"), damage);
+	float newHealth = Health - damage;
 	SetHealth(newHealth);
 	return newHealth;
 }
 
 float ARPGCharacter::ReceiveHealing(float healing) {
-	float newHealth = health + healing;
+	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter receives %4.0f healing"), healing);
+	float newHealth = Health + healing;
 	SetHealth(newHealth);
 	return newHealth;
 }
