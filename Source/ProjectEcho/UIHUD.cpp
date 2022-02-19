@@ -2,4 +2,8 @@
 
 
 #include "UIHUD.h"
+#include "UIStatBar.h"
 
+UUIStatBar* UUIHUD::GetBar() {
+	return bar;
+}

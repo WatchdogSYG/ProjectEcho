@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "UIStatBar.h"
+
 #include "UIHUD.generated.h"
 
 /**
@@ -16,6 +18,8 @@ class PROJECTECHO_API UUIHUD : public UUserWidget {
 public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void ChangePct(int a);
+
+	UUIStatBar* GetBar();
 
 protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))

@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/ProgressBar.h"
+#include "Components/TextBlock.h"
 #include "UIStatBar.generated.h"
 
 /**
@@ -18,10 +20,9 @@ public:
 	float TargetPct;
 	float InterpTime;
 
-	void InterpProgress();
+	void InterpProgress(float newHealth);
 
 protected:
-
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))

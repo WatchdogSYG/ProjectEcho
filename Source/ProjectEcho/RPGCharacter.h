@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+
+#include "UIHUD.h"
 #include "UIStatBar.h"
 
 #include "RPGCharacter.generated.h"
@@ -21,6 +23,8 @@ public:
 
 	// Sets default values for this character's properties
 	ARPGCharacter();
+
+	UUIHUD* HealthBar;
 
 	UPROPERTY(BlueprintReadWrite, Category = "STATS");
 	float health{ 100.f };
@@ -45,6 +49,12 @@ public:
 
 	UFUNCTION()
 		void SetHealth(float h);
+
+	UFUNCTION()
+		float TakeDamage(float damage);
+
+	UFUNCTION()
+		float ReceiveHealing(float healing);
 
 	UPROPERTY(EditAnywhere, Category = "User Interface")
 		TSubclassOf<UUserWidget> StatBar;

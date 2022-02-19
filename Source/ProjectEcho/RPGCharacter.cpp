@@ -7,6 +7,7 @@
 #include "UIStatBar.h"
 #include "UIHUD.h"
 
+
 //https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/CPPTutorials/FirstPersonShooter/2/
 
 // Sets default values
@@ -24,7 +25,7 @@ void ARPGCharacter::BeginPlay() {
 	//why GetWorld() ???
 	//https://forums.unrealengine.com/t/cannot-create-widget-using-c/451606
 
-	UUIHUD* HealthBar = Cast<UUIHUD>(CreateWidget(GetWorld(), StatBar, "UIHealthBar"));
+	HealthBar = Cast<UUIHUD>(CreateWidget(GetWorld(), StatBar, "UIHealthBar"));
 
 	if (HealthBar == nullptr) {
 		check(GEngine != nullptr);
@@ -104,9 +105,9 @@ void ARPGCharacter::KeyLeft() {
 }
 
 void ARPGCharacter::KeyRight() {
-	SetHealth(GetHealth() + 5);
+	HealthBar->GetBar()->InterpProgress(TakeDamage(10));
 	check(GEngine != nullptr);
-	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("RIGHT"));
+	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5, FColor::Red, TEXT("DeltaHealth=" + FString::SanitizeFloat(health)));
 }
 
 float ARPGCharacter::GetHealth() {
@@ -115,4 +116,16 @@ float ARPGCharacter::GetHealth() {
 
 void ARPGCharacter::SetHealth(float h) {
 	health = h;
+}
+
+float ARPGCharacter::TakeDamage(float damage) {
+	float newHealth = health - damage;
+	SetHealth(newHealth);
+	return newHealth;
+}
+
+float ARPGCharacter::ReceiveHealing(float healing) {
+	float newHealth = health + healing;
+	SetHealth(newHealth);
+	return newHealth;
 }
