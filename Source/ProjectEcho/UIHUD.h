@@ -12,6 +12,11 @@
 UCLASS()
 class PROJECTECHO_API UUIHUD : public UUserWidget {
 	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintImplementableEvent)
+		void ChangePct(int a);
+
 protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UUIStatBar* bar;

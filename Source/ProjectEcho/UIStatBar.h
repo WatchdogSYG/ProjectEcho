@@ -13,9 +13,19 @@ UCLASS()
 class PROJECTECHO_API UUIStatBar : public UUserWidget {
 	GENERATED_BODY()
 
+public:
+	float CurrentPct;
+	float TargetPct;
+	float InterpTime;
+
+	void InterpProgress();
+
 protected:
+
+	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
+
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
-		class UProgressBar* pb_back;
+		class UImage* pb_back;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UProgressBar* pb_secondary;

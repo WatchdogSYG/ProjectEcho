@@ -1282,3 +1282,605 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2022.02.19-05.19.00:897][999]OBJ SavePackage: Finished generating thumbnails for package [/Game/Player/BP_RPGCharacter]
 [2022.02.19-05.19.00:905][999]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/BP_RPGCharacter_Auto22D44DFAF47D61DC16418BEB89372AA38.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Autosaves/Game/Player/BP_RPGCharacter_Auto2.uasset'
 [2022.02.19-05.19.00:906][999]LogFileHelpers: Auto-saving content packages took 0.047
+[2022.02.19-05.30.19:380][100]Candidate modules for hot reload:
+[2022.02.19-05.30.19:380][100]  ProjectEcho
+[2022.02.19-05.30.19:380][100]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,4471 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-05.30.19:382][100]Warning: Starting HotReload took  0.0s.
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 2:30:27 am
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.8193612 seconds
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-05.30.27:890][957]CompilerResultsLog: Building 8 actions with 12 processes...
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:   [1/8] ProjectEcho.init.gen.cpp
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:   [2/8] RPGCharacter.cpp
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho\RPGCharacter.h(52) : error C2143: syntax error: missing ';' before 'protected'
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho\RPGCharacter.h(52) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:   [3/8] RPGCharacter.gen.cpp
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho/RPGCharacter.h(52) : error C2143: syntax error: missing ';' before 'protected'
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho/RPGCharacter.h(52) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:   [4/8] UIHUD.cpp
+[2022.02.19-05.30.27:890][957]CompilerResultsLog:   [5/8] UIHUD.gen.cpp
+[2022.02.19-05.30.27:890][957]LogMainFrame: MainFrame: Module compiling took 8.514 seconds
+[2022.02.19-05.30.27:890][957]Warning: HotReload failed, recompile failed
+[2022.02.19-05.30.33:408][604]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-05.30.33:413][604]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-05.30.44:391][833]Candidate modules for hot reload:
+[2022.02.19-05.30.44:392][833]  ProjectEcho
+[2022.02.19-05.30.44:392][833]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,1709 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-05.30.44:394][833]Warning: Starting HotReload took  0.0s.
+[2022.02.19-05.30.47:135][111]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 2:30:47 am
+[2022.02.19-05.30.47:135][111]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-05.30.47:135][111]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-05.30.47:135][111]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-05.30.47:135][111]CompilerResultsLog: Building 5 actions with 12 processes...
+[2022.02.19-05.30.47:135][111]CompilerResultsLog:   [1/5] RPGCharacter.cpp
+[2022.02.19-05.30.47:135][111]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho\RPGCharacter.h(52) : error C2143: syntax error: missing ';' before 'protected'
+[2022.02.19-05.30.47:135][111]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho\RPGCharacter.h(52) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+[2022.02.19-05.30.47:135][111]CompilerResultsLog:   [2/5] RPGCharacter.gen.cpp
+[2022.02.19-05.30.47:135][111]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho/RPGCharacter.h(52) : error C2143: syntax error: missing ';' before 'protected'
+[2022.02.19-05.30.47:135][111]CompilerResultsLog:    C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Source\ProjectEcho/RPGCharacter.h(52) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+[2022.02.19-05.30.47:135][111]LogMainFrame: MainFrame: Module compiling took 2.746 seconds
+[2022.02.19-05.30.47:135][111]Warning: HotReload failed, recompile failed
+[2022.02.19-05.31.19:906][582]Candidate modules for hot reload:
+[2022.02.19-05.31.19:906][582]  ProjectEcho
+[2022.02.19-05.31.19:906][582]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,6777 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-05.31.19:908][582]Warning: Starting HotReload took  0.0s.
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 2:31:28 am
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.5861645 seconds
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Building 5 actions with 12 processes...
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:   [1/5] RPGCharacter.gen.cpp
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:   [2/5] RPGCharacter.cpp
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:   [3/5] UE4Editor-ProjectEcho-6777.lib
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-6777.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-6777.exp
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:   [4/5] UE4Editor-ProjectEcho-6777.dll
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-6777.suppressed.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-6777.suppressed.exp
+[2022.02.19-05.31.28:935][383]CompilerResultsLog:   [5/5] ProjectEchoEditor.target
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Total time in Parallel executor: 4.32 seconds
+[2022.02.19-05.31.28:935][383]CompilerResultsLog: Total execution time: 8.71 seconds
+[2022.02.19-05.31.28:935][383]LogMainFrame: MainFrame: Module compiling took 9.032 seconds
+[2022.02.19-05.31.28:975][383]LogClass: Could not find existing class RPGCharacter in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-05.31.28:975][383]LogClass: Function GetHealth is new.
+[2022.02.19-05.31.28:975][383]LogClass: Function KeyLeft is new.
+[2022.02.19-05.31.28:975][383]LogClass: Function KeyRight is new.
+[2022.02.19-05.31.28:975][383]LogClass: Function MouseUp is new.
+[2022.02.19-05.31.28:975][383]LogClass: Function MoveForward is new.
+[2022.02.19-05.31.28:975][383]LogClass: Function MoveRight is new.
+[2022.02.19-05.31.28:975][383]LogClass: Function SetHealth is new.
+[2022.02.19-05.31.28:975][383]LogClass: Could not find existing class UIHUD in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-05.31.28:983][383]LogHotReload: Re-instancing RPGCharacter after hot-reload.
+[2022.02.19-05.31.29:035][383]LogHotReload: Re-instancing UIHUD after hot-reload.
+[2022.02.19-05.31.29:037][383]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope SKEL_UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.31.29:037][383]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  UIStat Bar  was not found.
+[2022.02.19-05.31.29:038][383]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.31.29:039][383]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  UIStat Bar  was not found.
+[2022.02.19-05.31.29:039][383]LogProperty: Warning: Serialized WidgetBlueprintGeneratedClass /Game/UI/UIStatBar.UIStatBar_C for a property of Class /Script/ProjectEcho.UIStatBar. Reference will be nullptred.
+    Property = ObjectProperty /Script/ProjectEcho.UIHUD:bar
+    Item = UIStatBar_C /Engine/Transient.World_7:REINST_UIHUD_C_0.WidgetTree.bar
+[2022.02.19-05.31.29:075][383]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectEcho' in 0.0003 seconds. Added 4 classes and 2 folders.
+[2022.02.19-05.31.29:080][383]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
+[2022.02.19-05.31.29:147][383]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0095 seconds. Added 3826 classes and 930 folders.
+[2022.02.19-05.31.29:147][383]Display: HotReload took  9.3s.
+[2022.02.19-05.31.41:339][764]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope SKEL_UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.31.41:339][764]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  UIStat Bar  was not found.
+[2022.02.19-05.32.04:185][494]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope SKEL_UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.32.04:185][494]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  UIStat Bar  was not found.
+[2022.02.19-05.32.29:352][718]LogUObjectHash: Compacting FUObjectHashTables data took   3.00ms
+[2022.02.19-05.32.29:354][718]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Dev0' took 0.045
+[2022.02.19-05.32.29:354][718]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI/UIHUD] ([2] browsable assets)...
+[2022.02.19-05.32.29:354][718]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI/UIHUD]
+[2022.02.19-05.32.29:357][718]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/UIHUD_Auto34CD61D6F41D848C9C8A121BAAF94F197.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Autosaves/Game/UI/UIHUD_Auto3.uasset'
+[2022.02.19-05.32.29:358][718]LogFileHelpers: Auto-saving content packages took 0.004
+[2022.02.19-05.42.13:471][460]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-05.42.13:473][460]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-05.42.17:896][903]LogSlate: Window 'BP_RPGCharacter' being destroyed
+[2022.02.19-05.42.17:900][903]LogSlate: Window 'BP_RPGCharacter' being destroyed
+[2022.02.19-05.42.17:903][903]LogWorld: UWorld::CleanupWorld for World_7, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-05.42.17:903][903]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-05.42.17:913][903]LogWorld: UWorld::CleanupWorld for World_6, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-05.42.17:913][903]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-05.42.17:945][903]LogWorld: UWorld::CleanupWorld for World_8, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-05.42.17:945][903]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-05.42.18:737][989]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UIStatBar.UIStatBar
+[2022.02.19-05.43.05:332][544]LogUObjectHash: Compacting FUObjectHashTables data took   2.81ms
+[2022.02.19-05.43.05:335][544]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Dev0' took 0.052
+[2022.02.19-05.43.05:335][544]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI/UIStatBar] ([2] browsable assets)...
+[2022.02.19-05.43.05:335][544]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI/UIStatBar]
+[2022.02.19-05.43.05:344][544]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/UIStatBar_Auto43C09820B47A7B6567999B9961C92D025.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Autosaves/Game/UI/UIStatBar_Auto4.uasset'
+[2022.02.19-05.43.05:345][544]LogFileHelpers: Auto-saving content packages took 0.010
+[2022.02.19-05.59.19:494][452]Candidate modules for hot reload:
+[2022.02.19-05.59.19:494][452]  ProjectEcho
+[2022.02.19-05.59.19:494][452]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,9430 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-05.59.19:496][452]Warning: Starting HotReload took  0.0s.
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 2:59:28 am
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.3994302 seconds
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Building 7 actions with 12 processes...
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [1/7] UIStatBar.cpp
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [2/7] UIStatBar.gen.cpp
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [3/7] RPGCharacter.cpp
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [4/7] RPGCharacter.gen.cpp
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [5/7] UE4Editor-ProjectEcho-9430.lib
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-9430.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-9430.exp
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [6/7] UE4Editor-ProjectEcho-9430.dll
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-9430.suppressed.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-9430.suppressed.exp
+[2022.02.19-05.59.28:940][548]CompilerResultsLog:   [7/7] ProjectEchoEditor.target
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Total time in Parallel executor: 5.14 seconds
+[2022.02.19-05.59.28:940][548]CompilerResultsLog: Total execution time: 9.35 seconds
+[2022.02.19-05.59.28:940][548]LogMainFrame: MainFrame: Module compiling took 9.450 seconds
+[2022.02.19-05.59.28:979][548]LogClass: Could not find existing class UIStatBar in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-05.59.28:988][548]LogHotReload: Re-instancing UIStatBar after hot-reload.
+[2022.02.19-05.59.29:003][548]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectEcho' in 0.0005 seconds. Added 4 classes and 2 folders.
+[2022.02.19-05.59.29:008][548]Display: HotReload successful (7 functions remapped  0 scriptstructs remapped)
+[2022.02.19-05.59.29:098][548]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0090 seconds. Added 3826 classes and 930 folders.
+[2022.02.19-05.59.29:098][548]Display: HotReload took  9.6s.
+[2022.02.19-05.59.32:544][917]LogUObjectHash: Compacting FUObjectHashTables data took   3.10ms
+[2022.02.19-05.59.32:554][917]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev01258A41147F966355F8C3CA51290C40E.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0.umap'
+[2022.02.19-05.59.32:567][917]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/Dev0_BuiltData" FILE="../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0_BuiltData.uasset" SILENT=true
+[2022.02.19-05.59.32:593][917]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev0_BuiltDataF6F56CA9413E14A439D86E9ED3D832E2.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0_BuiltData.uasset'
+[2022.02.19-05.59.32:609][917]AssetCheck: New page: Asset Save: multiple assets
+[2022.02.19-05.59.32:609][917]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/Dev0_BuiltData.Dev0_BuiltData
+[2022.02.19-05.59.32:609][917]LogContentValidation: Display: Validating World /Game/Levels/Dev0.Dev0
+[2022.02.19-05.59.34:624][151]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Player/BP_RPGCharacter.BP_RPGCharacter
+[2022.02.19-05.59.42:731][973]LogTemp: Repeating last play command: Selected Viewport
+[2022.02.19-05.59.42:737][973]BlueprintLog: New page: Pre-Play auto-recompile
+[2022.02.19-05.59.42:739][973]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope SKEL_UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.59.42:739][973]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  HOTRELOADED UIStat Bar 2  was not found.
+[2022.02.19-05.59.42:739][973]LogPlayLevel: [PlayLevel] Compiling UIStatBar before play...
+[2022.02.19-05.59.42:813][973]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope SKEL_UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.59.42:813][973]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  HOTRELOADED UIStat Bar 2  was not found.
+[2022.02.19-05.59.42:814][973]LogPlayLevel: [PlayLevel] Compiling UIHUD before play...
+[2022.02.19-05.59.42:814][973]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] Internal Compiler Error: Tried to create a property bar in scope UIHUD_C, but another object (ObjectProperty /Script/ProjectEcho.UIHUD:bar) already exists there.
+[2022.02.19-05.59.42:814][973]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIHUD.uasset: [Compiler] A required widget binding "bar" of type  HOTRELOADED UIStat Bar 2  was not found.
+[2022.02.19-05.59.42:867][973]LogUObjectHash: Compacting FUObjectHashTables data took   3.34ms
+[2022.02.19-05.59.42:867][973]LogPlayLevel: PlayLevel: Blueprint regeneration took 130 ms (2 blueprints)
+[2022.02.19-05.59.42:867][973]BlueprintLog: Warning: Blueprint failed to compile:  UIHUD
+[2022.02.19-05.59.42:868][973]LogCustomDialog: Dialog displayed:
+[2022.02.19-05.59.45:067][973]LogSlate: Window 'Blueprint Compilation Errors' being destroyed
+[2022.02.19-05.59.46:397][112]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-05.59.46:399][112]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-05.59.52:589][728]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UIHUD.UIHUD
+[2022.02.19-06.02.41:613][867]LogBlueprint: Warning: Unknown type of hyperlinked object (HOTRELOADED_UIStatBar_2), cannot focus it
+[2022.02.19-06.04.07:309][442]Candidate modules for hot reload:
+[2022.02.19-06.04.07:309][442]  ProjectEcho
+[2022.02.19-06.04.07:310][442]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,0046 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-06.04.07:312][442]Warning: Starting HotReload took  0.0s.
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 3:04:16 am
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-06.04.16:347][341]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.5382294 seconds
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-06.04.16:347][341]CompilerResultsLog: Building 7 actions with 12 processes...
+[2022.02.19-06.04.16:347][341]CompilerResultsLog:   [1/7] ProjectEcho.init.gen.cpp
+[2022.02.19-06.04.16:347][341]CompilerResultsLog:   [2/7] UIHUD.cpp
+[2022.02.19-06.04.16:347][341]CompilerResultsLog:   [3/7] UIHUD.gen.cpp
+[2022.02.19-06.04.16:348][341]CompilerResultsLog:   [4/7] RPGCharacter.cpp
+[2022.02.19-06.04.16:348][341]CompilerResultsLog:   [5/7] UE4Editor-ProjectEcho-0046.lib
+[2022.02.19-06.04.16:348][341]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-0046.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-0046.exp
+[2022.02.19-06.04.16:348][341]CompilerResultsLog:   [6/7] UE4Editor-ProjectEcho-0046.dll
+[2022.02.19-06.04.16:348][341]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-0046.suppressed.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-0046.suppressed.exp
+[2022.02.19-06.04.16:348][341]CompilerResultsLog:   [7/7] ProjectEchoEditor.target
+[2022.02.19-06.04.16:348][341]CompilerResultsLog: Total time in Parallel executor: 4.60 seconds
+[2022.02.19-06.04.16:348][341]CompilerResultsLog: Total execution time: 8.95 seconds
+[2022.02.19-06.04.16:348][341]LogMainFrame: MainFrame: Module compiling took 9.042 seconds
+[2022.02.19-06.04.16:378][341]LogClass: Could not find existing class UIHUD in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-06.04.16:390][341]LogHotReload: Re-instancing UIHUD after hot-reload.
+[2022.02.19-06.04.16:444][341]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectEcho' in 0.0003 seconds. Added 4 classes and 2 folders.
+[2022.02.19-06.04.16:449][341]Display: HotReload successful (7 functions remapped  0 scriptstructs remapped)
+[2022.02.19-06.04.16:543][341]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0082 seconds. Added 3826 classes and 930 folders.
+[2022.02.19-06.04.16:543][341]Display: HotReload took  9.2s.
+[2022.02.19-06.04.19:618][680]LogTemp: Repeating last play command: Selected Viewport
+[2022.02.19-06.04.19:626][680]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.02.19-06.04.19:626][680]PIE: New page: PIE session: Dev0 (20 Feb 2022, 3:04:19 am)
+[2022.02.19-06.04.19:626][680]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.04.19:628][680]LogPlayLevel: PIE: StaticDuplicateObject took: (0.002261s)
+[2022.02.19-06.04.19:629][680]LogAIModule: Creating AISystem for world Dev0
+[2022.02.19-06.04.19:629][680]LogPlayLevel: PIE: World Init took: (0.001036s)
+[2022.02.19-06.04.19:629][680]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Dev0.Dev0 to /Game/Levels/UEDPIE_0_Dev0.Dev0 (0.003427s)
+[2022.02.19-06.04.19:675][680]LogUObjectHash: Compacting FUObjectHashTables data took   3.53ms
+[2022.02.19-06.04.19:677][680]LogAudio: Display: Creating Audio Device:                 Id: 7, Scope: Unique, Realtime: True
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.02.19-06.04.19:677][680]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.02.19-06.04.19:677][680]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.02.19-06.04.19:678][680]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.02.19-06.04.19:678][680]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.02.19-06.04.19:678][680]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.02.19-06.04.19:678][680]LogAudioMixer: Display: Initializing audio mixer.
+[2022.02.19-06.04.19:680][680]LogAudioMixer: Display: 0: FrontLeft
+[2022.02.19-06.04.19:680][680]LogAudioMixer: Display: 1: FrontRight
+[2022.02.19-06.04.19:686][680]LogAudioMixer: Display: Using Audio Device Headphones (3- High Definition Audio Device)
+[2022.02.19-06.04.19:687][680]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.02.19-06.04.19:687][680]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.02.19-06.04.19:687][680]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.02.19-06.04.19:687][680]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.02.19-06.04.19:687][680]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.02.19-06.04.19:687][680]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.02.19-06.04.19:688][680]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.02.19-06.04.19:688][680]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.02.19-06.04.19:688][680]LogInit: FAudioDevice initialized.
+[2022.02.19-06.04.19:688][680]LogAudio: Display: Audio Device (ID: 7) registered with world 'Dev0'.
+[2022.02.19-06.04.19:696][680]LogLoad: Game class is 'NewGameMode_C'
+[2022.02.19-06.04.19:697][680]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Dev0.Dev0 up for play (max tick rate 0) at 2022.02.19-16.34.19
+[2022.02.19-06.04.19:697][680]LogWorld: Bringing up level for play took: 0.000884
+[2022.02.19-06.04.19:697][680]LogOnline: OSS: Creating online subsystem instance for: :Context_19
+[2022.02.19-06.04.19:701][680]PIE: Server logged in
+[2022.02.19-06.04.19:701][680]PIE: Play in editor total start time 0.076 seconds.
+[2022.02.19-06.04.35:035][123]LogSlate: Window 'UIHUD' being destroyed
+[2022.02.19-06.04.35:039][123]LogSlate: Window 'UIHUD' being destroyed
+[2022.02.19-06.04.35:046][123]LogWorld: UWorld::CleanupWorld for World_10, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.04.35:046][123]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.35:054][123]LogWorld: UWorld::CleanupWorld for World_9, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.04.35:054][123]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.35:090][123]LogWorld: UWorld::CleanupWorld for World_11, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.04.35:091][123]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.35:129][123]LogWorld: UWorld::CleanupWorld for World_13, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.04.35:129][123]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.35:137][123]LogWorld: UWorld::CleanupWorld for World_12, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.04.35:137][123]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.36:693][301]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.04.36:693][301]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.04.36:693][301]LogWorld: UWorld::CleanupWorld for Dev0, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.04.36:693][301]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.36:705][301]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.02.19-06.04.36:709][301]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.04.36:726][301]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2022.02.19-06.04.36:743][301]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.04.36:744][301]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.04.36:746][301]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.04.36:782][301]LogUObjectHash: Compacting FUObjectHashTables data took   3.63ms
+[2022.02.19-06.04.36:803][302]LogPlayLevel: Display: Destroying online subsystem :Context_19
+[2022.02.19-06.09.49:933][318]LogUObjectHash: Compacting FUObjectHashTables data took   2.90ms
+[2022.02.19-06.09.49:941][318]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev0_Auto54276189B402F7EA227140292716A243C.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Autosaves/Game/Levels/Dev0_Auto5.umap'
+[2022.02.19-06.09.49:942][318]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Dev0' took 0.082
+[2022.02.19-06.09.49:942][318]LogFileHelpers: Editor autosave (incl. sublevels & external actors) for all levels took 0.082
+[2022.02.19-06.09.49:943][318]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Player/BP_RPGCharacter] ([2] browsable assets)...
+[2022.02.19-06.09.49:975][318]OBJ SavePackage:     Rendered thumbnail for [Blueprint /Game/Player/BP_RPGCharacter.BP_RPGCharacter]
+[2022.02.19-06.09.49:975][318]OBJ SavePackage: Finished generating thumbnails for package [/Game/Player/BP_RPGCharacter]
+[2022.02.19-06.09.49:984][318]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/BP_RPGCharacter_Auto5C18F1E4A43D9EF5B1743B6AE6DD1AEC1.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Autosaves/Game/Player/BP_RPGCharacter_Auto5.uasset'
+[2022.02.19-06.09.49:984][318]LogFileHelpers: Auto-saving content packages took 0.042
+[2022.02.19-06.11.25:292][828]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UIStatBar.UIStatBar
+[2022.02.19-06.11.38:394][302]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2022.02.19-06.11.38:410][302]LogEditorClassViewer: Warning: Class /Engine/Tutorial/InWorldBlueprintEditing/TutorialAssets/IWBE_Blutility.IWBE_Blutility_C has parent /Script/Blutility.PlacedEditorUtilityBase, but this parent is not found. The Class will not be shown in ClassViewer.
+[2022.02.19-06.11.42:705][814]LogBlueprint: Warning: Reparenting blueprint WidgetBlueprint /Game/UI/UIStatBar.UIStatBar from UserWidget to UIStatBar...
+[2022.02.19-06.11.42:706][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] Internal Compiler Error: Tried to create a property pb_back in scope SKEL_UIStatBar_C, but another object (ObjectProperty /Script/ProjectEcho.UIStatBar:pb_back) already exists there.
+[2022.02.19-06.11.42:706][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "pb_back" of type  Progress Bar  was not found.
+[2022.02.19-06.11.42:707][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "valueDisplay" of type  Text  was not found.
+[2022.02.19-06.11.42:709][814]BlueprintLog: New page: Compile UIStatBar
+[2022.02.19-06.11.42:709][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] Internal Compiler Error: Tried to create a property pb_back in scope SKEL_UIStatBar_C, but another object (ObjectProperty /Script/ProjectEcho.UIStatBar:pb_back) already exists there.
+[2022.02.19-06.11.42:709][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "pb_back" of type  Progress Bar  was not found.
+[2022.02.19-06.11.42:709][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "valueDisplay" of type  Text  was not found.
+[2022.02.19-06.11.42:710][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] Internal Compiler Error: Tried to create a property pb_back in scope UIStatBar_C, but another object (ObjectProperty /Script/ProjectEcho.UIStatBar:pb_back) already exists there.
+[2022.02.19-06.11.42:712][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "pb_back" of type  Progress Bar  was not found.
+[2022.02.19-06.11.42:712][814]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "valueDisplay" of type  Text  was not found.
+[2022.02.19-06.11.42:728][814]LogUObjectHash: Compacting FUObjectHashTables data took   1.55ms
+[2022.02.19-06.11.58:552][639]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] Internal Compiler Error: Tried to create a property pb_back in scope SKEL_UIStatBar_C, but another object (ObjectProperty /Script/ProjectEcho.UIStatBar:pb_back) already exists there.
+[2022.02.19-06.11.58:552][639]LogBlueprint: Error: [AssetLog] C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Content\UI\UIStatBar.uasset: [Compiler] A required widget binding "pb_back" of type  Progress Bar  was not found.
+[2022.02.19-06.12.22:264][785]Candidate modules for hot reload:
+[2022.02.19-06.12.22:264][785]  ProjectEcho
+[2022.02.19-06.12.22:265][785]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,8369 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-06.12.22:267][785]Warning: Starting HotReload took  0.0s.
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 3:12:32 am
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.7447418 seconds
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Building 8 actions with 12 processes...
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [1/8] ProjectEcho.init.gen.cpp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [2/8] UIStatBar.cpp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [3/8] UIStatBar.gen.cpp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [4/8] RPGCharacter.cpp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [5/8] RPGCharacter.gen.cpp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [6/8] UE4Editor-ProjectEcho-8369.lib
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-8369.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-8369.exp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [7/8] UE4Editor-ProjectEcho-8369.dll
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-8369.suppressed.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-8369.suppressed.exp
+[2022.02.19-06.12.32:028][593]CompilerResultsLog:   [8/8] ProjectEchoEditor.target
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Total time in Parallel executor: 5.06 seconds
+[2022.02.19-06.12.32:028][593]CompilerResultsLog: Total execution time: 9.67 seconds
+[2022.02.19-06.12.32:028][593]LogMainFrame: MainFrame: Module compiling took 9.766 seconds
+[2022.02.19-06.12.32:057][593]LogClass: Could not find existing class UIStatBar in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-06.12.32:067][593]LogHotReload: Re-instancing UIStatBar after hot-reload.
+[2022.02.19-06.12.32:072][593]LogProperty: Warning: Serialized Class /Script/UMG.Image for a property of Class /Script/UMG.ProgressBar. Reference will be nullptred.
+    Property = ObjectProperty /Engine/Transient.HOTRELOADED_UIStatBar_4:pb_back
+    Item = Image /Engine/Transient.World_15:REINST_UIStatBar_C_0.WidgetTree.pb_back
+[2022.02.19-06.12.32:135][593]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectEcho' in 0.0002 seconds. Added 4 classes and 2 folders.
+[2022.02.19-06.12.32:140][593]Display: HotReload successful (7 functions remapped  0 scriptstructs remapped)
+[2022.02.19-06.12.32:210][593]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0083 seconds. Added 3826 classes and 930 folders.
+[2022.02.19-06.12.32:210][593]Display: HotReload took 10.0s.
+[2022.02.19-06.12.34:704][828]BlueprintLog: New page: Compile UIStatBar
+[2022.02.19-06.12.34:752][828]LogUObjectHash: Compacting FUObjectHashTables data took   2.78ms
+[2022.02.19-06.12.38:332][201]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UIStatBar" FILE="../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/UI/UIStatBar.uasset" SILENT=true
+[2022.02.19-06.12.38:342][201]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/UIStatBar9394B36E4384C33AA74333B7385C301A.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/UI/UIStatBar.uasset'
+[2022.02.19-06.12.38:352][201]AssetCheck: New page: Asset Save: UIStatBar
+[2022.02.19-06.12.38:352][201]LogContentValidation: Display: Validating WidgetBlueprint /Game/UI/UIStatBar.UIStatBar
+[2022.02.19-06.13.18:935][972]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Player/BP_RPGCharacter.BP_RPGCharacter
+[2022.02.19-06.13.21:559][233]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2022.02.19-06.13.21:577][233]LogEditorClassViewer: Warning: Class /Engine/Tutorial/InWorldBlueprintEditing/TutorialAssets/IWBE_Blutility.IWBE_Blutility_C has parent /Script/Blutility.PlacedEditorUtilityBase, but this parent is not found. The Class will not be shown in ClassViewer.
+[2022.02.19-06.13.28:387][ 15]BlueprintLog: New page: Compile BP_RPGCharacter
+[2022.02.19-06.13.28:443][ 15]LogUObjectHash: Compacting FUObjectHashTables data took   2.71ms
+[2022.02.19-06.13.30:312][226]Candidate modules for hot reload:
+[2022.02.19-06.13.30:312][226]  ProjectEcho
+[2022.02.19-06.13.30:312][226]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,3736 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-06.13.30:314][226]Warning: Starting HotReload took  0.0s.
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 3:13:38 am
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.32557 seconds
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Building 6 actions with 12 processes...
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   [1/6] ProjectEcho.init.gen.cpp
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   [2/6] RPGCharacter.gen.cpp
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   [3/6] RPGCharacter.cpp
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   [4/6] UE4Editor-ProjectEcho-3736.lib
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-3736.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-3736.exp
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   [5/6] UE4Editor-ProjectEcho-3736.dll
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-3736.suppressed.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-3736.suppressed.exp
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog:   [6/6] ProjectEchoEditor.target
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Total time in Parallel executor: 4.13 seconds
+[2022.02.19-06.13.38:587][ 81]CompilerResultsLog: Total execution time: 8.19 seconds
+[2022.02.19-06.13.38:587][ 81]LogMainFrame: MainFrame: Module compiling took 8.279 seconds
+[2022.02.19-06.13.38:611][ 81]LogClass: Could not find existing class RPGCharacter in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-06.13.38:611][ 81]LogClass: Function GetHealth is new.
+[2022.02.19-06.13.38:612][ 81]LogClass: Function KeyLeft is new.
+[2022.02.19-06.13.38:612][ 81]LogClass: Function KeyRight is new.
+[2022.02.19-06.13.38:612][ 81]LogClass: Function MouseUp is new.
+[2022.02.19-06.13.38:612][ 81]LogClass: Function MoveForward is new.
+[2022.02.19-06.13.38:612][ 81]LogClass: Function MoveRight is new.
+[2022.02.19-06.13.38:612][ 81]LogClass: Function SetHealth is new.
+[2022.02.19-06.13.38:625][ 81]LogHotReload: Re-instancing RPGCharacter after hot-reload.
+[2022.02.19-06.13.38:682][ 81]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectEcho' in 0.0003 seconds. Added 4 classes and 2 folders.
+[2022.02.19-06.13.38:688][ 81]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
+[2022.02.19-06.13.38:783][ 81]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0086 seconds. Added 3826 classes and 930 folders.
+[2022.02.19-06.13.38:784][ 81]Display: HotReload took  8.5s.
+[2022.02.19-06.13.45:662][837]LogUObjectHash: Compacting FUObjectHashTables data took   3.52ms
+[2022.02.19-06.13.45:667][837]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev0B459AB074E446B59F380F1919962BBD2.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0.umap'
+[2022.02.19-06.13.45:678][837]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/Dev0_BuiltData" FILE="../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0_BuiltData.uasset" SILENT=true
+[2022.02.19-06.13.45:694][837]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev0_BuiltData4C07BAB94906AEAEEEA22188CEC5A011.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0_BuiltData.uasset'
+[2022.02.19-06.13.45:704][837]AssetCheck: New page: Asset Save: multiple assets
+[2022.02.19-06.13.45:704][837]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/Dev0_BuiltData.Dev0_BuiltData
+[2022.02.19-06.13.45:704][837]LogContentValidation: Display: Validating World /Game/Levels/Dev0.Dev0
+[2022.02.19-06.13.46:081][881]LogTemp: Repeating last play command: Selected Viewport
+[2022.02.19-06.13.46:087][881]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.02.19-06.13.46:087][881]PIE: New page: PIE session: Dev0 (20 Feb 2022, 3:13:46 am)
+[2022.02.19-06.13.46:087][881]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.13.46:090][881]LogPlayLevel: PIE: StaticDuplicateObject took: (0.001944s)
+[2022.02.19-06.13.46:090][881]LogAIModule: Creating AISystem for world Dev0
+[2022.02.19-06.13.46:091][881]LogPlayLevel: PIE: World Init took: (0.001101s)
+[2022.02.19-06.13.46:091][881]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Dev0.Dev0 to /Game/Levels/UEDPIE_0_Dev0.Dev0 (0.003213s)
+[2022.02.19-06.13.46:118][881]LogUObjectHash: Compacting FUObjectHashTables data took   3.01ms
+[2022.02.19-06.13.46:119][881]LogAudio: Display: Creating Audio Device:                 Id: 8, Scope: Unique, Realtime: True
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.02.19-06.13.46:119][881]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.02.19-06.13.46:119][881]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.02.19-06.13.46:119][881]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.02.19-06.13.46:120][881]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.02.19-06.13.46:120][881]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.02.19-06.13.46:120][881]LogAudioMixer: Display: Initializing audio mixer.
+[2022.02.19-06.13.46:122][881]LogAudioMixer: Display: 0: FrontLeft
+[2022.02.19-06.13.46:122][881]LogAudioMixer: Display: 1: FrontRight
+[2022.02.19-06.13.46:128][881]LogAudioMixer: Display: Using Audio Device Headphones (3- High Definition Audio Device)
+[2022.02.19-06.13.46:128][881]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.02.19-06.13.46:128][881]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.02.19-06.13.46:128][881]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.02.19-06.13.46:129][881]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.02.19-06.13.46:129][881]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.02.19-06.13.46:129][881]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.02.19-06.13.46:129][881]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.02.19-06.13.46:129][881]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.02.19-06.13.46:129][881]LogInit: FAudioDevice initialized.
+[2022.02.19-06.13.46:129][881]LogAudio: Display: Audio Device (ID: 8) registered with world 'Dev0'.
+[2022.02.19-06.13.46:140][881]LogLoad: Game class is 'NewGameMode_C'
+[2022.02.19-06.13.46:141][881]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Dev0.Dev0 up for play (max tick rate 0) at 2022.02.19-16.43.46
+[2022.02.19-06.13.46:141][881]LogWorld: Bringing up level for play took: 0.000820
+[2022.02.19-06.13.46:142][881]LogOnline: OSS: Creating online subsystem instance for: :Context_23
+[2022.02.19-06.13.46:144][881]PIE: Error: CreateWidget called with a null class.
+[2022.02.19-06.13.46:144][881]PIE: Error: CreateWidget called with a null class.
+[2022.02.19-06.13.46:144][881]PIE: Server logged in
+[2022.02.19-06.13.46:145][881]PIE: Play in editor total start time 0.059 seconds.
+[2022.02.19-06.13.51:913][357]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.13.51:913][357]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.13.51:913][357]LogWorld: UWorld::CleanupWorld for Dev0, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.13.51:914][357]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.13.51:924][357]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.02.19-06.13.51:930][357]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.13.51:953][357]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.13.51:954][357]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.13.51:955][357]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.13.51:960][357]LogUObjectHash: Compacting FUObjectHashTables data took   2.91ms
+[2022.02.19-06.13.52:058][358]LogPlayLevel: Display: Destroying online subsystem :Context_23
+[2022.02.19-06.14.05:941][703]LogSlate: Window 'BP_RPGCharacter' being destroyed
+[2022.02.19-06.14.05:944][703]LogSlate: Window 'BP_RPGCharacter' being destroyed
+[2022.02.19-06.14.05:947][703]LogWorld: UWorld::CleanupWorld for World_15, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.14.05:947][703]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.14.05:956][703]LogWorld: UWorld::CleanupWorld for World_14, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.14.05:956][703]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.14.05:995][703]LogWorld: UWorld::CleanupWorld for World_17, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.14.05:995][703]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.14.06:847][800]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-06.14.06:850][800]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-06.14.08:026][937]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UIHUD.UIHUD
+[2022.02.19-06.14.12:022][370]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-06.14.12:026][370]LogSlate: Window 'Message Log' being destroyed
+[2022.02.19-06.14.18:622][144]BlueprintLog: New page: Compile UIHUD
+[2022.02.19-06.14.18:685][144]LogUObjectHash: Compacting FUObjectHashTables data took   3.00ms
+[2022.02.19-06.15.05:208][830]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Player/BP_RPGCharacter.BP_RPGCharacter
+[2022.02.19-06.15.06:724][963]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2022.02.19-06.15.06:740][963]LogEditorClassViewer: Warning: Class /Engine/Tutorial/InWorldBlueprintEditing/TutorialAssets/IWBE_Blutility.IWBE_Blutility_C has parent /Script/Blutility.PlacedEditorUtilityBase, but this parent is not found. The Class will not be shown in ClassViewer.
+[2022.02.19-06.15.20:520][200]LogTemp: Repeating last play command: Selected Viewport
+[2022.02.19-06.15.20:525][200]BlueprintLog: New page: Pre-Play auto-recompile
+[2022.02.19-06.15.20:526][200]LogPlayLevel: [PlayLevel] Compiling BP_RPGCharacter before play...
+[2022.02.19-06.15.20:617][200]LogUObjectHash: Compacting FUObjectHashTables data took   3.22ms
+[2022.02.19-06.15.20:620][200]LogPlayLevel: PlayLevel: Blueprint regeneration took 94 ms (1 blueprints)
+[2022.02.19-06.15.20:620][200]PIE: New page: PIE session: Dev0 (20 Feb 2022, 3:15:20 am)
+[2022.02.19-06.15.20:620][200]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.15.20:622][200]LogPlayLevel: PIE: StaticDuplicateObject took: (0.002034s)
+[2022.02.19-06.15.20:623][200]LogAIModule: Creating AISystem for world Dev0
+[2022.02.19-06.15.20:623][200]LogPlayLevel: PIE: World Init took: (0.001050s)
+[2022.02.19-06.15.20:623][200]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Dev0.Dev0 to /Game/Levels/UEDPIE_0_Dev0.Dev0 (0.003219s)
+[2022.02.19-06.15.20:640][200]LogUObjectHash: Compacting FUObjectHashTables data took   1.16ms
+[2022.02.19-06.15.20:640][200]LogAudio: Display: Creating Audio Device:                 Id: 9, Scope: Unique, Realtime: True
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.02.19-06.15.20:640][200]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.02.19-06.15.20:640][200]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.02.19-06.15.20:640][200]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.02.19-06.15.20:640][200]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.02.19-06.15.20:640][200]LogAudioMixer: Display: Initializing audio mixer.
+[2022.02.19-06.15.20:643][200]LogAudioMixer: Display: 0: FrontLeft
+[2022.02.19-06.15.20:643][200]LogAudioMixer: Display: 1: FrontRight
+[2022.02.19-06.15.20:649][200]LogAudioMixer: Display: Using Audio Device Headphones (3- High Definition Audio Device)
+[2022.02.19-06.15.20:649][200]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.02.19-06.15.20:650][200]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.02.19-06.15.20:650][200]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.02.19-06.15.20:650][200]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.02.19-06.15.20:650][200]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.02.19-06.15.20:650][200]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.02.19-06.15.20:651][200]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.02.19-06.15.20:651][200]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.02.19-06.15.20:651][200]LogInit: FAudioDevice initialized.
+[2022.02.19-06.15.20:651][200]LogAudio: Display: Audio Device (ID: 9) registered with world 'Dev0'.
+[2022.02.19-06.15.20:660][200]LogLoad: Game class is 'NewGameMode_C'
+[2022.02.19-06.15.20:661][200]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Dev0.Dev0 up for play (max tick rate 0) at 2022.02.19-16.45.20
+[2022.02.19-06.15.20:661][200]LogWorld: Bringing up level for play took: 0.001060
+[2022.02.19-06.15.20:661][200]LogOnline: OSS: Creating online subsystem instance for: :Context_27
+[2022.02.19-06.15.20:665][200]PIE: Server logged in
+[2022.02.19-06.15.20:665][200]PIE: Play in editor total start time 0.141 seconds.
+[2022.02.19-06.15.26:662][687]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.15.26:662][687]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.15.26:663][687]LogWorld: UWorld::CleanupWorld for Dev0, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.15.26:663][687]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.15.26:675][687]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.02.19-06.15.26:679][687]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.15.26:694][687]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.15.26:694][687]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.15.26:695][687]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.15.26:699][687]LogUObjectHash: Compacting FUObjectHashTables data took   1.67ms
+[2022.02.19-06.15.26:729][690]LogPlayLevel: Display: Destroying online subsystem :Context_27
+[2022.02.19-06.15.45:588][101]Candidate modules for hot reload:
+[2022.02.19-06.15.45:588][101]  ProjectEcho
+[2022.02.19-06.15.45:588][101]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectEcho,2359 ProjectEchoEditor Win64 Development -Project="C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject" "C:/Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/ProjectEcho.uproject"  -IgnoreJunk]
+[2022.02.19-06.15.45:590][101]Warning: Starting HotReload took  0.0s.
+[2022.02.19-06.15.54:605][136]CompilerResultsLog: New page: Compilation - 20 Feb 2022, 3:15:54 am
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho).
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Parsing headers for ProjectEchoEditor
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\ProjectEcho.uproject" "C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\ProjectEchoEditor\Development\ProjectEchoEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Watchdog\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Reflection code generated for ProjectEchoEditor in 3.3357346 seconds
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Building ProjectEchoEditor...
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Building 7 actions with 12 processes...
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [1/7] ProjectEcho.init.gen.cpp
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [2/7] UIHUD.cpp
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [3/7] UIHUD.gen.cpp
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [4/7] RPGCharacter.cpp
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [5/7] UE4Editor-ProjectEcho-2359.lib
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-2359.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-2359.exp
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [6/7] UE4Editor-ProjectEcho-2359.dll
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:      Creating library C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-2359.suppressed.lib and object C:\Users\Watchdog\Documents\GitHub\ProjectEcho\Unreal_ProjectEcho\Intermediate\Build\Win64\UE4Editor\Development\ProjectEcho\UE4Editor-ProjectEcho-2359.suppressed.exp
+[2022.02.19-06.15.54:606][136]CompilerResultsLog:   [7/7] ProjectEchoEditor.target
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Total time in Parallel executor: 4.80 seconds
+[2022.02.19-06.15.54:606][136]CompilerResultsLog: Total execution time: 8.92 seconds
+[2022.02.19-06.15.54:606][136]LogMainFrame: MainFrame: Module compiling took 9.021 seconds
+[2022.02.19-06.15.54:631][136]LogClass: Could not find existing class UIHUD in package /Script/ProjectEcho for HotReload, assuming new class
+[2022.02.19-06.15.54:643][136]LogHotReload: Re-instancing UIHUD after hot-reload.
+[2022.02.19-06.15.54:700][136]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectEcho' in 0.0002 seconds. Added 4 classes and 2 folders.
+[2022.02.19-06.15.54:705][136]Display: HotReload successful (7 functions remapped  0 scriptstructs remapped)
+[2022.02.19-06.15.54:769][136]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0098 seconds. Added 3826 classes and 930 folders.
+[2022.02.19-06.15.54:769][136]Display: HotReload took  9.2s.
+[2022.02.19-06.15.57:403][418]LogUObjectHash: Compacting FUObjectHashTables data took   3.48ms
+[2022.02.19-06.15.57:410][418]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev04C5E2FBF4F4C4D0B6A263DBC0F62EB66.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0.umap'
+[2022.02.19-06.15.57:423][418]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/Dev0_BuiltData" FILE="../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0_BuiltData.uasset" SILENT=true
+[2022.02.19-06.15.57:441][418]LogSavePackage: Moving '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Saved/Dev0_BuiltData6A8056D84887725B636B85953B4890CB.tmp' to '../../../../../../Users/Watchdog/Documents/GitHub/ProjectEcho/Unreal_ProjectEcho/Content/Levels/Dev0_BuiltData.uasset'
+[2022.02.19-06.15.57:451][418]AssetCheck: New page: Asset Save: multiple assets
+[2022.02.19-06.15.57:451][418]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/Dev0_BuiltData.Dev0_BuiltData
+[2022.02.19-06.15.57:451][418]LogContentValidation: Display: Validating World /Game/Levels/Dev0.Dev0
+[2022.02.19-06.15.57:996][483]LogTemp: Repeating last play command: Selected Viewport
+[2022.02.19-06.15.58:003][483]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.02.19-06.15.58:003][483]PIE: New page: PIE session: Dev0 (20 Feb 2022, 3:15:58 am)
+[2022.02.19-06.15.58:003][483]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.15.58:006][483]LogPlayLevel: PIE: StaticDuplicateObject took: (0.002819s)
+[2022.02.19-06.15.58:007][483]LogAIModule: Creating AISystem for world Dev0
+[2022.02.19-06.15.58:007][483]LogPlayLevel: PIE: World Init took: (0.001265s)
+[2022.02.19-06.15.58:007][483]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Dev0.Dev0 to /Game/Levels/UEDPIE_0_Dev0.Dev0 (0.004227s)
+[2022.02.19-06.15.58:031][483]LogUObjectHash: Compacting FUObjectHashTables data took   2.07ms
+[2022.02.19-06.15.58:032][483]LogAudio: Display: Creating Audio Device:                 Id: 10, Scope: Unique, Realtime: True
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.02.19-06.15.58:032][483]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.02.19-06.15.58:032][483]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.02.19-06.15.58:032][483]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.02.19-06.15.58:032][483]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.02.19-06.15.58:032][483]LogAudioMixer: Display: Initializing audio mixer.
+[2022.02.19-06.15.58:035][483]LogAudioMixer: Display: 0: FrontLeft
+[2022.02.19-06.15.58:035][483]LogAudioMixer: Display: 1: FrontRight
+[2022.02.19-06.15.58:041][483]LogAudioMixer: Display: Using Audio Device Headphones (3- High Definition Audio Device)
+[2022.02.19-06.15.58:041][483]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.02.19-06.15.58:041][483]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.02.19-06.15.58:041][483]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.02.19-06.15.58:042][483]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.02.19-06.15.58:042][483]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.02.19-06.15.58:042][483]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.02.19-06.15.58:043][483]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.02.19-06.15.58:043][483]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.02.19-06.15.58:043][483]LogInit: FAudioDevice initialized.
+[2022.02.19-06.15.58:043][483]LogAudio: Display: Audio Device (ID: 10) registered with world 'Dev0'.
+[2022.02.19-06.15.58:050][483]LogLoad: Game class is 'NewGameMode_C'
+[2022.02.19-06.15.58:051][483]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Dev0.Dev0 up for play (max tick rate 0) at 2022.02.19-16.45.58
+[2022.02.19-06.15.58:051][483]LogWorld: Bringing up level for play took: 0.000785
+[2022.02.19-06.15.58:051][483]LogOnline: OSS: Creating online subsystem instance for: :Context_28
+[2022.02.19-06.15.58:054][483]PIE: Server logged in
+[2022.02.19-06.15.58:055][483]PIE: Play in editor total start time 0.054 seconds.
+[2022.02.19-06.16.02:593][ 19]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.16.02:593][ 19]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Dev0
+[2022.02.19-06.16.02:593][ 19]LogWorld: UWorld::CleanupWorld for Dev0, bSessionEnded=true, bCleanupResources=true
+[2022.02.19-06.16.02:593][ 19]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.16.02:599][ 19]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.02.19-06.16.02:603][ 19]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.02.19-06.16.02:620][ 19]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.02.19-06.16.02:620][ 19]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.16.02:621][ 19]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.02.19-06.16.02:626][ 19]LogUObjectHash: Compacting FUObjectHashTables data took   1.74ms
+[2022.02.19-06.16.02:674][ 21]LogPlayLevel: Display: Destroying online subsystem :Context_28
