@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "UIStatBar.h"
 
 #include "RPGCharacter.generated.h"
 
@@ -45,6 +46,9 @@ public:
 	UFUNCTION()
 		void SetHealth(float h);
 
+	UPROPERTY(EditAnywhere, Category = "User Interface")
+		TSubclassOf<UUserWidget> StatBar;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -56,6 +60,4 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
-	
 };
