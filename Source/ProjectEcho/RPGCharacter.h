@@ -12,7 +12,11 @@
 
 #include "RPGCharacter.generated.h"
 
-
+/*
+ * A class that is a parent to all playable Characters in this game. It should implement movement, 
+ * stats, stat behaviours (damage, effects, healing, death), and be a baseis for mounting other 
+ * components.
+*/
 UCLASS()
 class PROJECTECHO_API ARPGCharacter : public ACharacter {
 
