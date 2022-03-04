@@ -40,4 +40,7 @@ public:
 	//  GET/SET
 	////////////////////////////////////////////////////////////////
 	UUIStatBar* GetBar();
+
+	void SetMaxHealth(float max);
+	void SetHealth(float health);
 };

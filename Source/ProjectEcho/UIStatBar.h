@@ -36,48 +36,82 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UTextBlock* ValueDisplay;
 
-public:
+protected:
 	////////////////////////////////////////////////////////////////
 	//  CONSTRUCTORS
 	////////////////////////////////////////////////////////////////
 
-	//UUIStatBar();
+	virtual void NativeConstruct() override;
+
+public:
+
+	////////////////////////////////////////////////////////////////
+	//  MEMBER VARIABLE & ENUMERATION
+	////////////////////////////////////////////////////////////////
+
+	enum BarTransformation {
+		SCALE,
+		EXTEND
+	};
+
+	enum TextUpdateMode {
+		DISCRETE,
+		CONTINUOUS
+	};
 
 	////////////////////////////////////////////////////////////////
 	//  GET/SET
 	////////////////////////////////////////////////////////////////
+	float GetMaxValue();
+	void SetMaxValue(float value, BarTransformation method);
 
-	void SetMaxValue(float value);
-
+	
+	float GetPercent();
 	void SetPercent(float value);
 
-	void SetCurrentValue(float value);
+	float GetTargetValue();
+	void SetTargetValue(float value);
 
-	float GetMaxValue();
+private:
 
-	float GetPercent();
-
-	float GetCurrentValue();
+	void SetCurrentValue(float value);	//This is private as this fn controls the real time display which we don't want the user controlling. It also synchronises the internal UUIStatBar::CurrentValue with the text display.
 
 private:
 	////////////////////////////////////////////////////////////////
 	//  MEMBER VARIABLES
 	////////////////////////////////////////////////////////////////
 
+	//Resource Values
+	float MinValue;
 	float MaxValue;
+
+	float TargetValue;
 	float CurrentValue;
 
+	//Percentages
+	float OriginalPct;
 	float CurrentPct;
 	float TargetPct;
-	float InterpTime;
 
-	float InterpolationConstant;
+	float SecondaryCurrentPct;
+	float SecondaryTargetPct;
 
-	//a struct that records when the resource is +- and when it happens
+	UPROPERTY(EditAnywhere, Category = "Animation")
+		float AnimationDuration;	//The animation duration.
+
+	float RemainingAnimationTime;	//The remaining animation time. Resets upon setting a new CurrentValue;
+	float RemainingSecondaryAnimationTime;
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+		float InterpolationExpConstant;	//The degree of the easing function, if an exponential ease is selected.
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+		float SecondaryBarLag;	//The delay between animating the PrimaryBar compared to the SecondaryBar.
+
+		//a struct that records when the resource is +- and when it happens
 	struct ResourceEvent {
-		float	magnitude;	//the magnitude of the resource being taken
-		long	time;		//the time at which it happened. TODO: determine how I will keep track of relative time/absolute time.
-		bool	readOnce;	//TODO: doc and rename this
+		float	pct;	//the magnitude of the resource being taken
+		float	time;		//the time at which it happened. TODO: determine how I will keep track of relative time/absolute time.
 	};
 
 	TQueue< ResourceEvent, EQueueMode::Mpsc > HitQueue; //A queue which will store all events where a resource changed, and is deq'd as the progress bar animates.
@@ -86,5 +120,18 @@ private:
 	//  UI CONTROL FUNCTIONS
 	////////////////////////////////////////////////////////////////
 
-	void InterpProgress(float newHealth);
+	float InterpolateProgress(UProgressBar* bar, float originalPct, float targetPct);
+
+	////////////////////////////////////////////////////////////////
+	//  OPTIONS
+	////////////////////////////////////////////////////////////////
+	
+	TextUpdateMode Mode;
+
+	bool DisplayMaxValue;
+
+
+	float LastActionTime;
+	float SecondaryBarDelay;
+	bool SecondaryBarAnimating;
 };

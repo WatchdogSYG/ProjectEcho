@@ -49,6 +49,9 @@ void ARPGCharacter::BeginPlay() {
 	} else {
 		UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Add HealthBar to Viewport"));
 		HealthBar->AddToViewport();
+
+		HealthBar->SetMaxHealth(MaxHealth);
+		HealthBar->SetHealth(Health);
 	}
 }
 
@@ -116,13 +119,13 @@ void ARPGCharacter::MouseUp(float magnitude) {
 
 void ARPGCharacter::KeyLeft() {
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter pressed LEFTKEY"));
-	//HealthBar->GetBar()->InterpProgress(TakeDamage(7));
+	HealthBar->GetBar()->SetTargetValue(TakeDamage(7));
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Health = %4.0f"), Health);
 }
 
 void ARPGCharacter::KeyRight() {
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter pressed RIGHTKEY"));
-	//HealthBar->GetBar()->InterpProgress(ReceiveHealing(10));
+	HealthBar->GetBar()->SetTargetValue(ReceiveHealing(10));
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Health = %4.0f"), Health);
 }
 

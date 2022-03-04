@@ -7,3 +7,11 @@
 UUIStatBar* UUIHUD::GetBar() {
 	return bar;
 }
+
+void UUIHUD::SetMaxHealth(float max) {
+	bar->SetMaxValue(max, UUIStatBar::SCALE);
+}
+
+void UUIHUD::SetHealth(float health) {
+	bar->SetTargetValue(health);
+}
