@@ -93,6 +93,7 @@ private:
 	float CurrentPct;
 	float TargetPct;
 
+	float SecondaryOriginalPct;
 	float SecondaryCurrentPct;
 	float SecondaryTargetPct;
 
@@ -110,8 +111,8 @@ private:
 
 		//a struct that records when the resource is +- and when it happens
 	struct ResourceEvent {
-		float	pct;	//the magnitude of the resource being taken
-		float	time;		//the time at which it happened. TODO: determine how I will keep track of relative time/absolute time.
+		float	SetPct;				//the magnitude of the resource being taken
+		float	EventTime;		//the time at which it happened. TODO: determine how I will keep track of relative time/absolute time.
 	};
 
 	TQueue< ResourceEvent, EQueueMode::Mpsc > HitQueue; //A queue which will store all events where a resource changed, and is deq'd as the progress bar animates.
@@ -120,7 +121,7 @@ private:
 	//  UI CONTROL FUNCTIONS
 	////////////////////////////////////////////////////////////////
 
-	float InterpolateProgress(UProgressBar* bar, float originalPct, float targetPct);
+	float InterpolateProgress(UProgressBar* bar, float originalPct, float targetPct, float rem, float dur);
 
 	////////////////////////////////////////////////////////////////
 	//  OPTIONS
@@ -131,7 +132,8 @@ private:
 	bool DisplayMaxValue;
 
 
-	float LastActionTime;
+	float EventTime;
 	float SecondaryBarDelay;
 	bool SecondaryBarAnimating;
+
 };
