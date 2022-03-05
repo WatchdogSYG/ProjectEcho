@@ -46,7 +46,7 @@ protected:
 public:
 
 	////////////////////////////////////////////////////////////////
-	//  MEMBER VARIABLE & ENUMERATION
+	//  MEMBER VARIABLES & ENUMERATION
 	////////////////////////////////////////////////////////////////
 
 	enum BarTransformation {
@@ -62,40 +62,48 @@ public:
 	////////////////////////////////////////////////////////////////
 	//  GET/SET
 	////////////////////////////////////////////////////////////////
-	float GetMaxValue();
+
+	void SetValue(float value);
+
 	void SetMaxValue(float value, BarTransformation method);
 
-	
-	float GetPercent();
 	void SetPercent(float value);
-
-	float GetTargetValue();
-	void SetTargetValue(float value);
-
-private:
-
-	void SetCurrentValue(float value);	//This is private as this fn controls the real time display which we don't want the user controlling. It also synchronises the internal UUIStatBar::CurrentValue with the text display.
 
 private:
 	////////////////////////////////////////////////////////////////
 	//  MEMBER VARIABLES
 	////////////////////////////////////////////////////////////////
 
+	//Default Colours
+	
+	FColor MainColor;
+	FColor DownColor;
+	FColor UpColor;
+
+	//Bar ptrs
+	UProgressBar* FrontBar;
+	UProgressBar* BackBar;
+
+	bool ConfigurationChanged;
+	bool DownConfiguration;
+
 	//Resource Values
-	float MinValue;
-	float MaxValue;
+	float MinValue;		//value displayed by the bar when it is empty
+	float MaxValue;		//value displayed by the bar when it is full
+	float TargetValue;	//The value that the bar animates towards (this is the "correct" instantaneous value)
 
-	float TargetValue;
-	float CurrentValue;
+	//Instantaneous values
+	float CurrentValue;			//The instantaneous interpolated value of the PrimaryBar
+	float SecondaryCurrentValue;//The instantaneous interpolated value of the SecondaryBar
 
-	//Percentages
-	float OriginalPct;
-	float CurrentPct;
-	float TargetPct;
+	//Percentages (0 <= % <= 1.f)
+	float OriginalPct;	//The pct that represents the beginning of the interpolated animation for the PrimaryBar
+	float CurrentPct;	//The pct that the bar animates towards (this is the "correct" instantaneous pct) for the PrimaryBar
+	float TargetPct;	//The pct that represents the end of the interpolated animation for the PrimaryBar
 
-	float SecondaryOriginalPct;
-	float SecondaryCurrentPct;
-	float SecondaryTargetPct;
+	float SecondaryOriginalPct;//The pct that represents the beginning of the interpolated animation for the SecondaryBar
+	float SecondaryCurrentPct; //The pct that the bar animates towards (this is the "correct" instantaneous pct) for the SecondaryBar
+	float SecondaryTargetPct;  //The pct that represents the end of the interpolated animation for the SecondaryBar
 
 	UPROPERTY(EditAnywhere, Category = "Animation")
 		float AnimationDuration;	//The animation duration.
@@ -126,7 +134,7 @@ private:
 	////////////////////////////////////////////////////////////////
 	//  OPTIONS
 	////////////////////////////////////////////////////////////////
-	
+
 	TextUpdateMode Mode;
 
 	bool DisplayMaxValue;
@@ -135,5 +143,8 @@ private:
 	float EventTime;
 	float SecondaryBarDelay;
 	bool SecondaryBarAnimating;
+
+
+	void UpdateText();
 
 };

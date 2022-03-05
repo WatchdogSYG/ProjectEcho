@@ -20,18 +20,19 @@
 
 //this is how to construct a derived class from UUserWidget which has no default constructor (initialisation lists did not work)
 //https://www.reddit.com/r/unrealengine/comments/ibtr4m/lkn2019_error_when_compiling_a_uuserwidget/
+
 void UUIStatBar::NativeConstruct() {
 	Super::NativeConstruct();
 
+	//set options
+	Mode = UUIStatBar::CONTINUOUS;
+	DisplayMaxValue = true;
+
+	//set defaults
 	MinValue = 0.f;
 	MaxValue = 1.f;
 
-	Mode = UUIStatBar::CONTINUOUS;
-	AnimationDuration = 0.25f;
-	DisplayMaxValue = true;
-	SecondaryBarDelay = 1.5f;
-
-	CurrentPct = MaxValue;
+	CurrentPct = 0.f;
 	OriginalPct = CurrentPct;
 	TargetPct = CurrentPct;
 
@@ -39,7 +40,19 @@ void UUIStatBar::NativeConstruct() {
 	SecondaryCurrentPct = CurrentPct;
 	SecondaryTargetPct = CurrentPct;
 
-	SecondaryBarAnimating = false;
+	AnimationDuration = 0.5f;
+	SecondaryBarDelay = 0.7f;
+
+	ConfigurationChanged = true;	//must be true when initialised so that the first tick knows to can assign a bar to FrontBar and BackBar
+	DownConfiguration = true;
+
+	MainColor = FColor::FromHex("#41C424FF");
+
+	UpColor = FColor::FromHex("#FFFF1144");
+	DownColor = FColor::FromHex("#FF000044");
+
+	//UpColor = FColor::FromHex("#6BCB5644");
+	//DownColor = FColor::FromHex("#35AF1944");
 }
 
 ////////////////////////////////////////////////////////////////
@@ -49,14 +62,15 @@ void UUIStatBar::NativeConstruct() {
 void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 	Super::NativeTick(MyGeometry, DeltaTime);
 
+	//----------------------------------------------------------------
 	//Firstly, see if enough time has passed to input a ResourceEvent into the secondary Bar
-
 	if (HitQueue.Peek() != nullptr) {
 		if (GetWorld()->GetTimeSeconds() - HitQueue.Peek()->EventTime > SecondaryBarDelay) {
 			ResourceEvent event;
 			if (HitQueue.Dequeue(event)) {
 				SecondaryTargetPct = event.SetPct;
 				SecondaryOriginalPct = SecondaryCurrentPct;
+				RemainingSecondaryAnimationTime = AnimationDuration;
 				//do we need to adjust for the inter-tick delta between (GetWorld()->GetTimeSeconds() - HitQueue.Peek()->EventTime) and (SecondaryBarDelay)? Not for now.
 			} else {
 				//we deqd nothing! This should never happen due to the peek() check
@@ -66,76 +80,66 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 		//nothing in the queue to peek();
 	}
 
-
+	//----------------------------------------------------------------
+	//Secondly, increment the timers
 	RemainingAnimationTime -= DeltaTime;
 	RemainingSecondaryAnimationTime -= DeltaTime;//do we do this every tick?
 
+	//----------------------------------------------------------------
+	//Thirdly, configure the bars
+	//Check if the config changed first before the next if..else so that we only format the bars when needed instead of every tick
+	if (CurrentPct <= SecondaryCurrentPct) {// DownConfiguration
+		if (!DownConfiguration) {
+			DownConfiguration = true;
+			ConfigurationChanged = true;
+		}
+	} else {								// !DownConfiguration
+		if (DownConfiguration) {
+			DownConfiguration = false;
+			ConfigurationChanged = true;
+		}
+	}
 
+	//if the configuration changed, configure the bars
+	if (ConfigurationChanged) {
+		if (CurrentPct <= SecondaryCurrentPct) {
+			FrontBar = PrimaryBar;
+			BackBar = SecondaryBar;
 
-	//what configuration are we in (damage or healing?) ie. Do we need to animate either of the bars?
+			FrontBar->SetFillColorAndOpacity(MainColor);
+			BackBar->SetFillColorAndOpacity(DownColor);
+		} else {
+			FrontBar = SecondaryBar;
+			BackBar = PrimaryBar;
 
-	if (TargetPct < CurrentPct) { //we have less resource than what is displayed
+			FrontBar->SetFillColorAndOpacity(MainColor);
+			BackBar->SetFillColorAndOpacity(UpColor);
+		}
+	}
 
-		PrimaryBar->SetFillColorAndOpacity(FColor::Red);
-		SecondaryBar->SetFillColorAndOpacity(FColor::Green);
+	ConfigurationChanged = false; //reset the configuration flag for the next tick
 
-		CurrentPct = InterpolateProgress(PrimaryBar, OriginalPct, TargetPct, RemainingAnimationTime, AnimationDuration);
-
-	} else if (TargetPct > CurrentPct) { //we have more resource than what is displayed
-
-		PrimaryBar->SetFillColorAndOpacity(FColor::Green);
-		SecondaryBar->SetFillColorAndOpacity(FColor::Green);
-
-		CurrentPct = InterpolateProgress(PrimaryBar, OriginalPct, TargetPct, RemainingAnimationTime, AnimationDuration);
+	//----------------------------------------------------------------
+	//Fourthly, interpolate the values if needed
+	if (CurrentPct != TargetPct) {
+		CurrentPct = InterpolateProgress(FrontBar, OriginalPct, TargetPct, RemainingAnimationTime, AnimationDuration);
+		CurrentValue = CurrentPct * MaxValue;
 	} else {
 		OriginalPct = TargetPct;
 	}
 
+	if (SecondaryCurrentPct != SecondaryTargetPct) {
 
-	//----------------------------------------
-
-	if (SecondaryTargetPct < SecondaryCurrentPct) { //we have less resource than what is displayed
-
-
-		SecondaryCurrentPct = InterpolateProgress(SecondaryBar, SecondaryOriginalPct, SecondaryTargetPct, RemainingSecondaryAnimationTime, AnimationDuration);
-
-	} else if (TargetPct > CurrentPct) { //we have more resource than what is displayed
-
-
-		SecondaryCurrentPct = InterpolateProgress(SecondaryBar, SecondaryOriginalPct, SecondaryTargetPct, RemainingSecondaryAnimationTime, AnimationDuration);
-
+		SecondaryCurrentPct = InterpolateProgress(BackBar, SecondaryOriginalPct, SecondaryTargetPct, RemainingSecondaryAnimationTime, AnimationDuration);
+		SecondaryCurrentValue = SecondaryCurrentPct * MaxValue;
 	} else {
 		SecondaryOriginalPct = SecondaryTargetPct;
 	}
 
-
-
-	//the value of the current resource is always set by the character we are bound to
-
-	//---------------------------------------------------------
-
-
-	if (GetWorld()->GetTimeSeconds() - EventTime >= SecondaryBarDelay) {
-		//SecondaryTargetPct = TargetPct;
-		//SecondaryBarAnimating = true;
-		//RemainingSecondaryAnimationTime = AnimationDuration;
-	}
-
-
-	if (SecondaryCurrentPct == TargetPct) {
-		//SecondaryBarAnimating = false;
-	}
-
-	if (SecondaryBarAnimating) {
-		//SecondaryCurrentPct = InterpolateProgress(SecondaryBar, OriginalPct, SecondaryTargetPct);
-	}
-
-	//UE_LOG(LogTemp, Log, TEXT("UIStatBar	CurrentPct = %3.4f, TargetPct = %3.4f, SecondaryCurrentPct = %3.4f, SecondaryTargetPct = %3.4f"), CurrentPct, TargetPct, SecondaryCurrentPct, SecondaryTargetPct);
-
+	//----------------------------------------------------------------
+	//Finally, update the displayed text if required
 	if (Mode == UUIStatBar::CONTINUOUS) {
-		ValueDisplay->SetText(FText::FromString(
-			FString::SanitizeFloat(CurrentValue, 0)			+ FString("/") +	FString::SanitizeFloat(MaxValue,0) + FString("\n") + 
-			FString::SanitizeFloat(SecondaryCurrentPct, 0 ) + FString("/") +	FString::SanitizeFloat(MaxValue,0)));
+		UpdateText();
 	}
 }
 
@@ -148,7 +152,7 @@ void UUIStatBar::SetMaxValue(float newMaxValue, UUIStatBar::BarTransformation me
 	switch (method) {
 
 	case BarTransformation::SCALE: //The pct stays the same, but the val changes
-		SetCurrentValue(CurrentPct / MaxValue);
+		CurrentValue = CurrentPct / MaxValue;
 
 	case BarTransformation::EXTEND: //The val stays the same, but the pct changes
 		CurrentPct = CurrentValue / newMaxValue;
@@ -160,19 +164,18 @@ void UUIStatBar::SetMaxValue(float newMaxValue, UUIStatBar::BarTransformation me
 	} else {
 		MaxValue = newMaxValue;
 	}
+
+	UpdateText();
 }
 
-void UUIStatBar::SetTargetValue(float value) {
-	UE_LOG(LogTemp, Log, TEXT("Setting target value: value/MaxValue: %4.4f / %4.4f = %4.4f"), value, MaxValue,value / MaxValue);
+/*
+* Just converts the arg to a percentage and passes it to SetPercent(float percent);
+*/
+void UUIStatBar::SetValue(float value) {
 	SetPercent(value / MaxValue);
 }
 
-void UUIStatBar::SetCurrentValue(float value) {
-	CurrentValue = value;
-}
-
 void UUIStatBar::SetPercent(float percent) {
-	UE_LOG(LogTemp, Log, TEXT("Setting Target percent"));
 
 	//resets the animation timer
 	RemainingAnimationTime = AnimationDuration;
@@ -180,17 +183,15 @@ void UUIStatBar::SetPercent(float percent) {
 	OriginalPct = CurrentPct;
 
 	//set the target percentage do instantaneously update the interpolation rate
-
 	TargetPct = FMath::Clamp(percent, 0.f, 1.f);
-	UE_LOG(LogTemp, Warning, TEXT("value: % 4.4f, MinValue: % 4.4f, MaxValue: % 4.4f, TargetPct: % 4.4f"), percent, MinValue, MaxValue, TargetPct);
 
-	EventTime = GetWorld()->GetTimeSeconds();
-
+	//DISCRETE mode updates the display upon every  input, and not continuously
 	if (Mode == UUIStatBar::DISCRETE) {
-		UE_LOG(LogTemp, Log, TEXT("DISCRETE %4.1f"), TargetPct);
-		ValueDisplay->SetText(FText::FromString(FString::SanitizeFloat(TargetPct) + FString(" | ") + FString::SanitizeFloat(SecondaryTargetPct)));
+		UpdateText();
 	}
+
 	//insert the change request in the queue for dynamics and lag
+	EventTime = GetWorld()->GetTimeSeconds();
 	HitQueue.Enqueue(ResourceEvent{ TargetPct, EventTime });
 }
 
@@ -200,16 +201,40 @@ void UUIStatBar::SetPercent(float percent) {
 
 float UUIStatBar::InterpolateProgress(UProgressBar* bar, float originalPct, float targetPct, float rem, float dur) {
 
+	/*float NewPercent = UKismetMathLibrary::Ease(
+		originalPct,
+		targetPct,
+		FMath::Clamp(1 - (rem / dur), 0.f, 1.f),
+		EEasingFunc::SinusoidalOut);*/
+
+	//float NewPercent = UKismetMathLibrary::Ease(
+	//	originalPct,
+	//	targetPct,
+	//	FMath::Clamp(1 - (rem / dur), 0.f, 1.f),
+	//	EEasingFunc::CircularOut);
+
 	float NewPercent = UKismetMathLibrary::Ease(
 		originalPct,
 		targetPct,
 		FMath::Clamp(1 - (rem / dur), 0.f, 1.f),
-		EEasingFunc::SinusoidalOut);
+		EEasingFunc::EaseOut,5.f);
 
-	UE_LOG(LogTemp, Warning, TEXT("rem: %4.4f, dur: %4.4f, val: %4.4f, og: %4.4f, target: %4.4f, NewPercent: %4.4f"), rem, dur, FMath::Clamp(1 - (rem / dur), 0.f, 1.f), originalPct, targetPct, NewPercent);
+	//UE_LOG(LogTemp, Warning, TEXT("rem: %4.4f, dur: %4.4f, val: %4.4f, og: %4.4f, target: %4.4f, NewPercent: %4.4f"), rem, dur, FMath::Clamp(1 - (rem / dur), 0.f, 1.f), originalPct, targetPct, NewPercent);
 
 	bar->SetPercent(NewPercent);
 
 	return NewPercent;
+}
+
+void UUIStatBar::UpdateText() {
+	if (DisplayMaxValue) {
+		ValueDisplay->SetText(FText::FromString(
+			FString::FromInt((int)CurrentValue) + FString("/") + FString::FromInt((int)MaxValue)));// +FString("\n") +
+			//FString::FromInt((int)SecondaryCurrentValue) + FString("/") + FString::FromInt((int)MaxValue)));
+	} else {
+		ValueDisplay->SetText(FText::FromString(
+			FString::FromInt((int)CurrentValue)));// +FString("\n") +
+			//FString::FromInt((int)SecondaryCurrentValue)));
+	}
 }
 

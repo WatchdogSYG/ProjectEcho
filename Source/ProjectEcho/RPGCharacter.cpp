@@ -119,13 +119,13 @@ void ARPGCharacter::MouseUp(float magnitude) {
 
 void ARPGCharacter::KeyLeft() {
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter pressed LEFTKEY"));
-	HealthBar->GetBar()->SetTargetValue(TakeDamage(7));
+	HealthBar->GetBar()->SetValue(TakeDamage(7));
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Health = %4.0f"), Health);
 }
 
 void ARPGCharacter::KeyRight() {
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter pressed RIGHTKEY"));
-	HealthBar->GetBar()->SetTargetValue(ReceiveHealing(10));
+	HealthBar->GetBar()->SetValue(ReceiveHealing(10));
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Health = %4.0f"), Health);
 }
 

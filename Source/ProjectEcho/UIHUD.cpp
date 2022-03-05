@@ -13,5 +13,5 @@ void UUIHUD::SetMaxHealth(float max) {
 }
 
 void UUIHUD::SetHealth(float health) {
-	bar->SetTargetValue(health);
+	bar->SetValue(health);
 }
