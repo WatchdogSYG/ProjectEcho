@@ -26,7 +26,7 @@ void UUIStatBar::NativeConstruct() {
 
 	//set options
 	Mode = UUIStatBar::CONTINUOUS;
-	DisplayMaxValue = true;
+	DisplayMaxValue = false;
 
 	//set defaults
 	MinValue = 0.f;
@@ -53,6 +53,8 @@ void UUIStatBar::NativeConstruct() {
 
 	//UpColor = FColor::FromHex("#6BCB5644");
 	//DownColor = FColor::FromHex("#35AF1944");
+
+	UpdateText();
 }
 
 ////////////////////////////////////////////////////////////////
