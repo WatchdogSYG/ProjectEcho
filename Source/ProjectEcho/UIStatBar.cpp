@@ -25,7 +25,7 @@ void UUIStatBar::NativeConstruct() {
 	Super::NativeConstruct();
 
 	//set options
-	Mode = UUIStatBar::CONTINUOUS;
+	Mode = TextUpdateMode::CONTINUOUS;
 	DisplayMaxValue = false;
 
 	//set defaults
@@ -140,7 +140,7 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 
 	//----------------------------------------------------------------
 	//Finally, update the displayed text if required
-	if (Mode == UUIStatBar::CONTINUOUS) {
+	if (Mode == TextUpdateMode::CONTINUOUS) {
 		UpdateText();
 	}
 }
@@ -149,14 +149,14 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 //  PUBLIC INTERFACE
 ////////////////////////////////////////////////////////////////
 
-void UUIStatBar::SetMaxValue(float newMaxValue, UUIStatBar::BarTransformation method) {
+void UUIStatBar::SetMaxValue(float newMaxValue, BarTransformationMode method) {
 
 	switch (method) {
 
-	case BarTransformation::SCALE: //The pct stays the same, but the val changes
+	case BarTransformationMode::SCALE: //The pct stays the same, but the val changes
 		CurrentValue = CurrentPct / MaxValue;
 
-	case BarTransformation::EXTEND: //The val stays the same, but the pct changes
+	case BarTransformationMode::EXTEND: //The val stays the same, but the pct changes
 		CurrentPct = CurrentValue / newMaxValue;
 
 	}
@@ -188,7 +188,7 @@ void UUIStatBar::SetPercent(float percent) {
 	TargetPct = FMath::Clamp(percent, 0.f, 1.f);
 
 	//DISCRETE mode updates the display upon every  input, and not continuously
-	if (Mode == UUIStatBar::DISCRETE) {
+	if (Mode == TextUpdateMode::DISCRETE) {
 		UpdateText();
 	}
 

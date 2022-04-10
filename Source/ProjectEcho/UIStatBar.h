@@ -7,8 +7,25 @@
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 #include "Containers/Queue.h"
+#include "UObject/ObjectMacros.h"
 
 #include "UIStatBar.generated.h"
+
+////////////////////////////////////////////////////////////////
+////  ENUMERATION
+////////////////////////////////////////////////////////////////
+
+UENUM(BlueprintType)
+enum class BarTransformationMode : uint8 {
+	SCALE,
+	EXTEND
+};
+
+UENUM(BlueprintType)
+enum class TextUpdateMode : uint8 {
+	DISCRETE,
+	CONTINUOUS
+};
 
 /**
  *
@@ -46,36 +63,26 @@ protected:
 public:
 
 	////////////////////////////////////////////////////////////////
-	//  MEMBER VARIABLES & ENUMERATION
-	////////////////////////////////////////////////////////////////
-
-	enum BarTransformation {
-		SCALE,
-		EXTEND
-	};
-
-	enum TextUpdateMode {
-		DISCRETE,
-		CONTINUOUS
-	};
-
-	////////////////////////////////////////////////////////////////
 	//  GET/SET
 	////////////////////////////////////////////////////////////////
 
-	void SetValue(float value);
+	UFUNCTION(BlueprintCallable)
+		void SetValue(float value);
 
-	void SetMaxValue(float value, BarTransformation method);
+	UFUNCTION(BlueprintCallable)
+		void SetMaxValue(float value, BarTransformationMode method);
 
-	void SetPercent(float value);
+	UFUNCTION(BlueprintCallable)
+		void SetPercent(float value);
 
 private:
 	////////////////////////////////////////////////////////////////
 	//  MEMBER VARIABLES
 	////////////////////////////////////////////////////////////////
 
-	//Default Colours
 	
+	//Default Colours
+
 	FColor MainColor;
 	FColor DownColor;
 	FColor UpColor;

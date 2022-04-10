@@ -9,7 +9,7 @@ UUIStatBar* UUIHUD::GetBar() {
 }
 
 void UUIHUD::SetMaxHealth(float max) {
-	bar->SetMaxValue(max, UUIStatBar::SCALE);
+	bar->SetMaxValue(max, BarTransformationMode::SCALE);
 }
 
 void UUIHUD::SetHealth(float health) {

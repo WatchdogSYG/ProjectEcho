@@ -36,6 +36,8 @@ public:
 	//The main camera for this character. TODO: ThirdPerson gimbal implementation.
 	UCameraComponent* camera;
 
+	
+
 	////////////////////////////////////////////////////////////////
 	//  USER INTERFACE & WIDGETS
 	////////////////////////////////////////////////////////////////
@@ -44,6 +46,7 @@ public:
 		TSubclassOf<UUserWidget> StatBar;
 
 	UUIHUD* HealthBar;
+
 
 	////////////////////////////////////////////////////////////////
 	//  CHARACTER STATS
@@ -82,8 +85,8 @@ public:
 	UFUNCTION()
 		void SetHealth(float h);
 
-	UFUNCTION()
-		float TakeDamage(float damage);
+	UFUNCTION(BlueprintCallable)
+		float ReceiveDamage(float damage);
 
 	UFUNCTION()
 		float ReceiveHealing(float healing);
