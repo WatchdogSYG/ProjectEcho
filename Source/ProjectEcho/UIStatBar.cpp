@@ -11,6 +11,7 @@
 //  TODO
 ////////////////////////////////////////////////////////////////
 
+// - provide bp controls for colour, text format, size, opcity, enablement, other options (for HP/MP/SP bars)
 // - threshold for linear/reduced animation time for trickle damage
 // - set appropriate UPROPERTY assignments
 

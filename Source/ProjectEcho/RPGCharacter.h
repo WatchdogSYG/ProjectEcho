@@ -53,8 +53,19 @@ public:
 	////////////////////////////////////////////////////////////////
 
 	UPROPERTY(BlueprintReadWrite, Category = "STATS");
-	float Health{ 100.f };
+	float Health;
+	UPROPERTY(BlueprintReadWrite, Category = "STATS");
 	float MaxHealth{ 100.f };
+
+	UPROPERTY(BlueprintReadWrite, Category = "STATS");
+	float Mana;
+	UPROPERTY(BlueprintReadWrite, Category = "STATS");
+	float MaxMana{ 80.f };
+
+	UPROPERTY(BlueprintReadWrite, Category = "STATS");
+	float Shock;
+	UPROPERTY(BlueprintReadWrite, Category = "STATS");
+	float MaxShock{ 25.f };
 
 	////////////////////////////////////////////////////////////////
 	//  BOUND FUNCTIONS
