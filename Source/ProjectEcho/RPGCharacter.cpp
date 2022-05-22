@@ -155,3 +155,8 @@ float ARPGCharacter::ReceiveHealing(float healing) {
 	SetHealth(newHealth);
 	return newHealth;
 }
+
+float ARPGCharacter::TakeDamage(float DamageAmount, UDamageType* DamageType, class AController* EventInstigator, class AActor* DamageCauser) {
+	HealthBar->GetBar()->SetValue(ReceiveDamage(DamageAmount));
+	return DamageAmount;
+}

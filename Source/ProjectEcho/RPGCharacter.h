@@ -102,6 +102,8 @@ public:
 	UFUNCTION()
 		float ReceiveHealing(float healing);
 
+	UFUNCTION(BlueprintCallable)
+		float TakeDamage(float DamageAmount, UDamageType* DamageType, class AController* EventInstigator, class AActor* DamageCauser);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
