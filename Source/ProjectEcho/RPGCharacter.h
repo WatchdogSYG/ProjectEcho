@@ -36,7 +36,7 @@ public:
 	//The main camera for this character. TODO: ThirdPerson gimbal implementation.
 	UCameraComponent* camera;
 
-	
+	UWidget* nameplate;
 
 	////////////////////////////////////////////////////////////////
 	//  USER INTERFACE & WIDGETS

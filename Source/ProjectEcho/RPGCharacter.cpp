@@ -11,6 +11,7 @@
 #include "Blueprint/UserWidget.h"
 #include "UIStatBar.h"
 #include "UIHUD.h"
+#include "WidgetAnchorComponent.h"
 
 ////////////////////////////////////////////////////////////////
 //  CONSTRUCTORS
@@ -39,6 +40,8 @@ void ARPGCharacter::BeginPlay() {
 	//Initialise Camera
 	UE_LOG(LogTemp, Log, TEXT("ARPGCharacter	Initialise CameraComponent3P"));
 	camera = Cast<UCameraComponent>(GetDefaultSubobjectByName(TEXT("CameraComponent3P")));
+
+	//nameplate = Cast<WidgetAnchorComponent>(GetDefaultSubobjectByName())
 
 	//Initialise User Interface (HUD)
 	//why GetWorld() ???
