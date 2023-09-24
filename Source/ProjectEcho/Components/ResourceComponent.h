@@ -37,7 +37,6 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-
 private:
 
 	//https ://www.oreilly.com/library/view/unreal-engine-4/9781785885549/ch02s10.html#:~:text=C%2B%2B%20enum%20are%20very%20useful,Blueprint%20that%20you%20are%20editing.
@@ -76,11 +75,13 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	float HealStun(float magnitude);
 
-
 	void Death();
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	void UpdateDisplay(FString string);
+	void UpdateHealthDisplay(float health);
+
+	UFUNCTION(BlueprintCallable, Category = "Resources")
+	void UpdateMaxHealthDisplay(float maxHealth);
 
 	ANameplateActor* NameplateActor;
 };

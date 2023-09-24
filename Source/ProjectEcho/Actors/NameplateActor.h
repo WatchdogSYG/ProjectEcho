@@ -16,10 +16,13 @@ public:
 	ANameplateActor();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
-	void SetText(const FString& string);
+	void SetHealth(const float& value);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
-		void SetVisibility(const bool visibility);
+	void SetMaxHealth(const float& value);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+	void SetVisibility(const bool visibility);
 
 protected:
 	// Called when the game starts or when spawned

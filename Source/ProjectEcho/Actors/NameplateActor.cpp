@@ -11,12 +11,16 @@ ANameplateActor::ANameplateActor()
 
 }
 
-void ANameplateActor::SetText_Implementation(const FString& string){
-	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetText(FString string) called from base class!")); }
+void ANameplateActor::SetHealth_Implementation(const float& value){
+	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetHealth(const float& value) called from base class!")); }
+}
+
+void ANameplateActor::SetMaxHealth_Implementation(const float& value) {
+	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetMaxhealth(const float& value) called from base class!")); }
 }
 
 void ANameplateActor::SetVisibility_Implementation(const bool visibility){
-	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetVisibility(bool vsibility) called from base class!")); }
+	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetVisibility(const bool vsibility) called from base class!")); }
 }
 
 

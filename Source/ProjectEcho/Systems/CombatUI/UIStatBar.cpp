@@ -22,24 +22,30 @@
 //this is how to construct a derived class from UUserWidget which has no default constructor (initialisation lists did not work)
 //https://www.reddit.com/r/unrealengine/comments/ibtr4m/lkn2019_error_when_compiling_a_uuserwidget/
 
-void UUIStatBar::NativeConstruct() {
-	Super::NativeConstruct();
+//https://allarsblog.com/2020/01/29/ue4-umg-uuserwidget-which-fires-first-native_preconstruct-or-blueprint-preconstruct/
 
+void UUIStatBar::NativeOnInitialized() {
+	Super::NativeOnInitialized();
+	UE_LOG(LogTemp, Warning, TEXT("NativeOnInitialized Begin"));
 	//set options
 	Mode = TextUpdateMode::CONTINUOUS;
-	DisplayMaxValue = false;
+	DisplayMaxValue = true;
 
-	//set defaults
+	//set defaults to avoid nullptr
 	MinValue = 0.f;
-	MaxValue = 1.f;
+	MaxValue = 138.f;
 
-	CurrentPct = 0.f;
+	CurrentPct = 0.5f;
 	OriginalPct = CurrentPct;
 	TargetPct = CurrentPct;
+
+	InitialRefresh(CurrentPct * MaxValue, MaxValue);
 
 	SecondaryOriginalPct = CurrentPct;
 	SecondaryCurrentPct = CurrentPct;
 	SecondaryTargetPct = CurrentPct;
+
+	CurrentValue = CurrentPct * MaxValue;
 
 	AnimationDuration = 0.5f;
 	SecondaryBarDelay = 0.7f;
@@ -47,16 +53,20 @@ void UUIStatBar::NativeConstruct() {
 	ConfigurationChanged = true;	//must be true when initialised so that the first tick knows to can assign a bar to FrontBar and BackBar
 	DownConfiguration = true;
 
-	MainColor = FColor::FromHex("#41C424FF");
+	MainColor = FColor::FromHex("#1ABF00FF");
 
-	UpColor = FColor::FromHex("#FFFF1144");
-	DownColor = FColor::FromHex("#FF000044");
+	UpColor = FColor::FromHex("#E1BE00FF");
+	DownColor = FColor::FromHex("#D00000FF");
 
 	//UpColor = FColor::FromHex("#6BCB5644");
 	//DownColor = FColor::FromHex("#35AF1944");
 
 	UpdateText();
+	UE_LOG(LogTemp, Warning, TEXT("UISTatbar Init Complete"));
+	
 }
+
+
 
 ////////////////////////////////////////////////////////////////
 //  ENGINE FUNCTIONS
@@ -115,8 +125,8 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 			FrontBar = SecondaryBar;
 			BackBar = PrimaryBar;
 
-			FrontBar->SetFillColorAndOpacity(MainColor);
-			BackBar->SetFillColorAndOpacity(UpColor);
+			FrontBar->SetFillColorAndOpacity(UpColor);
+			BackBar->SetFillColorAndOpacity(MainColor);
 		}
 	}
 
@@ -132,7 +142,6 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 	}
 
 	if (SecondaryCurrentPct != SecondaryTargetPct) {
-
 		SecondaryCurrentPct = InterpolateProgress(BackBar, SecondaryOriginalPct, SecondaryTargetPct, RemainingSecondaryAnimationTime, AnimationDuration);
 		SecondaryCurrentValue = SecondaryCurrentPct * MaxValue;
 	} else {
@@ -151,15 +160,21 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 ////////////////////////////////////////////////////////////////
 
 void UUIStatBar::SetMaxValue(float newMaxValue, BarTransformationMode method) {
+	MaxValue = newMaxValue;
+	UE_LOG(LogTemp, Warning, TEXT("newMaxValue = %f"), newMaxValue);
 
 	switch (method) {
 
-	case BarTransformationMode::SCALE: //The pct stays the same, but the val changes
+	case BarTransformationMode::SCALE: 
+		//The pct stays the same, but the val changes
 		CurrentValue = CurrentPct / MaxValue;
-
-	case BarTransformationMode::EXTEND: //The val stays the same, but the pct changes
-		CurrentPct = CurrentValue / newMaxValue;
-
+		UE_LOG(LogTemp, Warning, TEXT("SCALE MaxValue to %f and CurrentPct is %f"), MaxValue, CurrentPct);
+		break;
+	case BarTransformationMode::EXTEND: 
+		//The val stays the same, but the pct changes
+		CurrentPct = CurrentValue / MaxValue;
+		UE_LOG(LogTemp, Warning, TEXT("EXTEND MaxValue to %f and CurrentPct [%f] = CurrentValue  [%f] / MaxValue [%f]"), MaxValue, CurrentPct, CurrentValue, MaxValue);
+		break;
 	}
 
 	if (newMaxValue <= MinValue) {
@@ -198,6 +213,15 @@ void UUIStatBar::SetPercent(float percent) {
 	HitQueue.Enqueue(ResourceEvent{ TargetPct, EventTime });
 }
 
+float UUIStatBar::GetMaxValue(){
+	return MaxValue;
+}
+
+void UUIStatBar::InitialRefresh(float health, float maxHealth){
+	SetValue(health);
+	SetMaxValue(maxHealth, BarTransformationMode::SCALE);
+}
+
 ////////////////////////////////////////////////////////////////
 //  PRIVATE INTERFACE
 ////////////////////////////////////////////////////////////////
@@ -231,11 +255,11 @@ float UUIStatBar::InterpolateProgress(UProgressBar* bar, float originalPct, floa
 
 void UUIStatBar::UpdateText() {
 	if (DisplayMaxValue) {
-		ValueDisplay->SetText(FText::FromString(
-			FString::FromInt((int)CurrentValue) + FString("/") + FString::FromInt((int)MaxValue)));// +FString("\n") +
+		HealthTextBlock->SetText(FText::FromString(
+			FString::FromInt((int)CurrentValue) + FString(" / ") + FString::FromInt((int)MaxValue)));// +FString("\n") +
 			//FString::FromInt((int)SecondaryCurrentValue) + FString("/") + FString::FromInt((int)MaxValue)));
 	} else {
-		ValueDisplay->SetText(FText::FromString(
+		HealthTextBlock->SetText(FText::FromString(
 			FString::FromInt((int)CurrentValue)));// +FString("\n") +
 			//FString::FromInt((int)SecondaryCurrentValue)));
 	}

@@ -25,7 +25,11 @@ UResourceComponent* UResourceComponent::InitialiseResources(float health, float 
 	
 	if (NameplateActor != nullptr) { NameplateActor->AttachToActor(this->GetOwner(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, false)); }
 	//TODO default nameplateActor
-	UpdateDisplay(FString::SanitizeFloat(Health,0));
+	
+	UpdateMaxHealthDisplay(MaxHealth);
+	UpdateHealthDisplay(Health);
+	
+	
 
 	return this;
 }
@@ -105,7 +109,7 @@ void UResourceComponent::DamageEventCallout(EDamageCategory category, float x1, 
 			true);
 	}
 
-	UpdateDisplay(FString::Printf(TEXT("%s"), *FString::SanitizeFloat(Health, 0)));
+	UpdateHealthDisplay(Health);
 }
 
 float UResourceComponent::DamageHealth(float magnitude) {
@@ -164,8 +168,12 @@ void UResourceComponent::Death() {
 	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("YOU DIED")), true); }
 }
 
-void UResourceComponent::UpdateDisplay(FString string) {
+void UResourceComponent::UpdateHealthDisplay(float health) {
 	//UTextBlock* text = (UTextBlock*)DisplayWidget->GetWidget()->GetWidgetFromName(TEXT("HealthText"));
 	//text->SetText(FText::FromString(string));
-	if (NameplateActor != nullptr) { NameplateActor->SetText(string); }
+	if (NameplateActor != nullptr) { NameplateActor->SetHealth(health); }
+}
+
+void UResourceComponent::UpdateMaxHealthDisplay(float maxHealth){
+	if (NameplateActor != nullptr) { NameplateActor->SetMaxHealth(maxHealth); }
 }

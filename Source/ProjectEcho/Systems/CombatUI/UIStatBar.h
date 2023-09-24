@@ -51,14 +51,14 @@ protected:
 		class UProgressBar* PrimaryBar;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
-		class UTextBlock* ValueDisplay;
+		class UTextBlock* HealthTextBlock;
 
 protected:
 	////////////////////////////////////////////////////////////////
 	//  CONSTRUCTORS
 	////////////////////////////////////////////////////////////////
 
-	virtual void NativeConstruct() override;
+	virtual void NativeOnInitialized() override;
 
 public:
 
@@ -75,6 +75,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void SetPercent(float value);
 
+	UFUNCTION(BlueprintCallable)
+		float GetMaxValue();
+
+	UFUNCTION(BlueprintCallable)
+		void InitialRefresh(float health, float maxHealth);
+
 private:
 	////////////////////////////////////////////////////////////////
 	//  MEMBER VARIABLES
@@ -82,9 +88,11 @@ private:
 
 	
 	//Default Colours
-
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor MainColor;
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor DownColor;
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor UpColor;
 
 	//Bar ptrs
@@ -96,19 +104,25 @@ private:
 
 	//Resource Values
 	float MinValue;		//value displayed by the bar when it is empty
-	float MaxValue;		//value displayed by the bar when it is full
+	float MaxValue;		//float MaxValue;value displayed by the bar when it is full
 	float TargetValue;	//The value that the bar animates towards (this is the "correct" instantaneous value)
 
 	//Instantaneous values
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	float CurrentValue;			//The instantaneous interpolated value of the PrimaryBar
+
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	float SecondaryCurrentValue;//The instantaneous interpolated value of the SecondaryBar
 
 	//Percentages (0 <= % <= 1.f)
+	
 	float OriginalPct;	//The pct that represents the beginning of the interpolated animation for the PrimaryBar
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	float CurrentPct;	//The pct that the bar animates towards (this is the "correct" instantaneous pct) for the PrimaryBar
 	float TargetPct;	//The pct that represents the end of the interpolated animation for the PrimaryBar
 
 	float SecondaryOriginalPct;//The pct that represents the beginning of the interpolated animation for the SecondaryBar
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
 	float SecondaryCurrentPct; //The pct that the bar animates towards (this is the "correct" instantaneous pct) for the SecondaryBar
 	float SecondaryTargetPct;  //The pct that represents the end of the interpolated animation for the SecondaryBar
 
