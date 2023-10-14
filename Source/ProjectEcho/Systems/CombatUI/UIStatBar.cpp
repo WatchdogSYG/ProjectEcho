@@ -47,13 +47,13 @@ void UUIStatBar::NativeOnInitialized() {
 
 	CurrentValue = CurrentPct * MaxValue;
 
-	AnimationDuration = 0.5f;
+	AnimationDuration = 0.3f;
 	SecondaryBarDelay = 0.7f;
 
 	ConfigurationChanged = true;	//must be true when initialised so that the first tick knows to can assign a bar to FrontBar and BackBar
 	DownConfiguration = true;
 
-	MainColor = FColor::FromHex("#1ABF00FF");
+	MainColor = FColor::FromHex("#00B63A");
 
 	UpColor = FColor::FromHex("#E1BE00FF");
 	DownColor = FColor::FromHex("#D00000FF");
