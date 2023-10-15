@@ -82,3 +82,11 @@ bool USpellbookComponent::CastSecondaryFire_Implementation() {
 	}
 	return true;
 }
+
+bool USpellbookComponent::CastAbility1_Implementation(){
+        if (GEngine) {
+                GEngine->AddOnScreenDebugMessage(
+                    1, 1.0f, FColor::Purple, FString::Printf(TEXT("Shoot Ability 1")));
+        }
+        return true;
+}

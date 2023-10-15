@@ -57,8 +57,11 @@ public:
 		ASpell* Defensive;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool CastPrimaryFire();
+		bool CastPrimaryFire();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool CastSecondaryFire();
+		bool CastSecondaryFire();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+        bool CastAbility1();
 };
