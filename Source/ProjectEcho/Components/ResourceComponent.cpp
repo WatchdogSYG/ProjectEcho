@@ -7,8 +7,7 @@
 #include "Components/TextBlock.h"
 
 // Sets default values for this component's properties
-UResourceComponent::UResourceComponent()
-{
+UResourceComponent::UResourceComponent(){
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
@@ -18,9 +17,13 @@ UResourceComponent::UResourceComponent()
 }
 
 
-UResourceComponent* UResourceComponent::InitialiseResources(float health, float maxHealth, ANameplateActor* nameplateActor=nullptr) {
+UResourceComponent* UResourceComponent::InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor = nullptr){
 	Health = health;
-	MaxHealth = maxHealth;
+	MaxHealth = MaxHealth;
+    Mana = mana;
+    MaxMana = maxMana;
+    Stun = stun;
+    MaxStun = maxStun;
 	NameplateActor = nameplateActor;
 	
 	if (NameplateActor != nullptr) { NameplateActor->AttachToActor(this->GetOwner(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, false)); }
@@ -36,8 +39,7 @@ UResourceComponent* UResourceComponent::InitialiseResources(float health, float 
 
 
 // Called when the game starts
-void UResourceComponent::BeginPlay()
-{
+void UResourceComponent::BeginPlay(){
 	Super::BeginPlay();
 
 	if (GEngine) {
@@ -156,11 +158,45 @@ float UResourceComponent::HealMana(float magnitude) {
 }
 
 float UResourceComponent::DamageStun(float magnitude) {
-	return 0.0f;
+	        // Get State before
+        float s1 = Stun;
+
+        // increment health
+        Stun -= FMath::Abs(magnitude);
+
+        if (Stun <= 0.f) {
+                //Death();
+        }
+
+        Stun = FMath::Clamp(Stun, 0.f, MaxStun);
+
+        DamageEventCallout(EDamageCategory::STUN, s1, Stun);
+
+        return s1 - Stun; // return the actual damage dealt
 }
 
 float UResourceComponent::HealStun(float magnitude) {
-	return 0.0f;
+        // Get State before
+        float s1 = Stun;
+
+        // increment health
+        Stun += FMath::Abs(magnitude);
+
+        if (Stun <= 0.f) {
+                Death();
+        } // keep this here in case there is a heal after a damage in a tick
+
+        if (Stun >= MaxStun) {
+                if (GEngine) {
+                    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("MAX Stun!"));
+                }
+        }
+
+        Stun = FMath::Clamp(Stun, 0.f, MaxStun);
+
+        DamageEventCallout(EDamageCategory::STUN, s1, Stun);
+
+        return Stun - s1; // return the actual damage healed
 }
 
 void UResourceComponent::Death() {
@@ -176,4 +212,28 @@ void UResourceComponent::UpdateHealthDisplay(float health) {
 
 void UResourceComponent::UpdateMaxHealthDisplay(float maxHealth){
 	if (NameplateActor != nullptr) { NameplateActor->SetMaxHealth(maxHealth); }
+}
+
+void UResourceComponent::UpdateManaDisplay(float mana){
+        if (NameplateActor != nullptr) {
+                NameplateActor->SetMana(mana);
+        }
+}
+
+void UResourceComponent::UpdateMaxManaDisplay(float maxMana){
+        if (NameplateActor != nullptr) {
+                NameplateActor->SetMaxMana(maxMana);
+        }
+}
+
+void UResourceComponent::UpdateStunDisplay(float stun){
+        if (NameplateActor != nullptr) {
+                NameplateActor->SetStun(stun);
+        }
+}
+
+void UResourceComponent::UpdateMaxStunDisplay(float maxStun){
+        if (NameplateActor != nullptr) {
+                NameplateActor->SetMaxStun(maxStun);
+        }
 }

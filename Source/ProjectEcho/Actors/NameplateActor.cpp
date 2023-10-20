@@ -16,7 +16,24 @@ void ANameplateActor::SetHealth_Implementation(const float& value){
 }
 
 void ANameplateActor::SetMaxHealth_Implementation(const float& value) {
-	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetMaxhealth(const float& value) called from base class!")); }
+	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetMaxHealth(const float& value) called from base class!")); }
+}
+
+void ANameplateActor::SetMana_Implementation(const float& value)
+{
+        if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetMana(const float& value) called from base class!")); }
+}
+
+void ANameplateActor::SetMaxMana_Implementation(const float& value){
+        if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetMaxMana(const float& value) called from base class!")); }
+}
+
+void ANameplateActor::SetStun_Implementation(const float& value){
+        if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetStun(const float& value) called from base class!")); }
+}
+
+void ANameplateActor::SetMaxStun_Implementation(const float& value){
+        if (GEngine) {GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("ANameplateActor::SetMaxStun(const float& value) called from base class!")); }
 }
 
 void ANameplateActor::SetVisibility_Implementation(const bool visibility){

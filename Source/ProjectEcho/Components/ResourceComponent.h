@@ -27,7 +27,7 @@ public:
 	UResourceComponent();
 
 	UFUNCTION(BlueprintCallable, Category = "Constructor")
-	UResourceComponent* InitialiseResources(float health, float Maxhealth, ANameplateActor* nameplateActor);
+        UResourceComponent* InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor);
 
 protected:
 	// Called when the game starts
@@ -83,5 +83,16 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	void UpdateMaxHealthDisplay(float maxHealth);
 
+		UFUNCTION(BlueprintCallable, Category = "Resources")
+        void UpdateManaDisplay(float mana);
+
+        UFUNCTION(BlueprintCallable, Category = "Resources")
+        void UpdateMaxManaDisplay(float maxMana);
+
+			UFUNCTION(BlueprintCallable, Category = "Resources")
+        void UpdateStunDisplay(float stun);
+
+        UFUNCTION(BlueprintCallable, Category = "Resources")
+        void UpdateMaxStunDisplay(float maxStun);
 	ANameplateActor* NameplateActor;
 };

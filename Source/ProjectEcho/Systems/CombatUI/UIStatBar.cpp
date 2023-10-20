@@ -62,10 +62,9 @@ void UUIStatBar::NativeOnInitialized() {
 	//DownColor = FColor::FromHex("#35AF1944");
 
 	UpdateText();
-	UE_LOG(LogTemp, Warning, TEXT("UISTatbar Init Complete"));
+	UE_LOG(LogTemp, Warning, TEXT("UIStatbar Init Complete"));
 	
 }
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -216,6 +215,12 @@ void UUIStatBar::SetPercent(float percent) {
 float UUIStatBar::GetMaxValue(){
 	return MaxValue;
 }
+
+void UUIStatBar::SetMainColor(FColor color) { MainColor = color; }
+
+void UUIStatBar::SetUpColor(FColor color) { UpColor = color; }
+
+void UUIStatBar::SetDownColor(FColor color) { DownColor = color; }
 
 void UUIStatBar::InitialRefresh(float health, float maxHealth){
 	SetValue(health);

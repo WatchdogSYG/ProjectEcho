@@ -16,13 +16,25 @@ public:
 	ANameplateActor();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
-	void SetHealth(const float& value);
+		void SetHealth(const float& value);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
-	void SetMaxHealth(const float& value);
+		void SetMaxHealth(const float& value);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
-	void SetVisibility(const bool visibility);
+        void SetMana(const float& value);
+
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+        void SetMaxMana(const float& value);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+        void SetStun(const float& value);
+
+     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+        void SetMaxStun(const float& value);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+		void SetVisibility(const bool visibility);
 
 protected:
 	// Called when the game starts or when spawned

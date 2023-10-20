@@ -79,6 +79,15 @@ public:
 		float GetMaxValue();
 
 	UFUNCTION(BlueprintCallable)
+        void SetMainColor(FColor color);
+
+    UFUNCTION(BlueprintCallable)
+        void SetUpColor(FColor color);
+
+    UFUNCTION(BlueprintCallable)
+        void SetDownColor(FColor color);
+
+	UFUNCTION(BlueprintCallable)
 		void InitialRefresh(float health, float maxHealth);
 
 private:
@@ -88,11 +97,11 @@ private:
 
 	
 	//Default Colours
-	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
+	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor MainColor;
-	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
+        UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor DownColor;
-	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true), Category = "Display")
+        UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor UpColor;
 
 	//Bar ptrs
