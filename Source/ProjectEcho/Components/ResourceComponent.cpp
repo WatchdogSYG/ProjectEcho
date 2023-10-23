@@ -19,7 +19,7 @@ UResourceComponent::UResourceComponent(){
 
 UResourceComponent* UResourceComponent::InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor = nullptr){
 	Health = health;
-	MaxHealth = MaxHealth;
+	MaxHealth = maxHealth;
     Mana = mana;
     MaxMana = maxMana;
     Stun = stun;
@@ -31,9 +31,8 @@ UResourceComponent* UResourceComponent::InitialiseResources(float health, float 
 	
 	UpdateMaxHealthDisplay(MaxHealth);
 	UpdateHealthDisplay(Health);
-	
-	
-
+    UpdateMaxHealthDisplay(MaxStun);
+    UpdateHealthDisplay(Stun);
 	return this;
 }
 
@@ -59,10 +58,21 @@ void UResourceComponent::BeginPlay(){
 
 
 // Called every frame
-void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
+void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction){
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+        /*
+	if (GEngine) {
+                GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("TimeUntilStunRegen = %s"),*FString::SanitizeFloat(TimeUntilStunRegen));
+        }
 
+	if (TimeUntilStunRegen > 0.f) {
+		TimeUntilStunRegen -= DeltaTime;
+        } else if (TimeUntilStunRegen <= 0.f) {
+                Stun -= NaturalStunRegenRate * DeltaTime;
+                UpdateStunDisplay(Stun);
+		}
+
+		*/
 	// ...
 }
 
@@ -111,7 +121,20 @@ void UResourceComponent::DamageEventCallout(EDamageCategory category, float x1, 
 			true);
 	}
 
-	UpdateHealthDisplay(Health);
+	switch (category) {
+        case EDamageCategory::HEALTH:
+                UpdateHealthDisplay(Health);
+                break;
+        case EDamageCategory::MANA:
+                UpdateManaDisplay(Mana);
+                break;
+        case EDamageCategory::STUN:
+                UpdateStunDisplay(Stun);
+                break;
+        default:
+                break;
+        }
+	
 }
 
 float UResourceComponent::DamageHealth(float magnitude) {
@@ -176,6 +199,8 @@ float UResourceComponent::DamageStun(float magnitude) {
 }
 
 float UResourceComponent::HealStun(float magnitude) {
+		//Set time for Natural Stun Regen
+        TimeUntilStunRegen = NaturalStunRegenDelay;
         // Get State before
         float s1 = Stun;
 
@@ -183,7 +208,7 @@ float UResourceComponent::HealStun(float magnitude) {
         Stun += FMath::Abs(magnitude);
 
         if (Stun <= 0.f) {
-                Death();
+              //  Death();
         } // keep this here in case there is a heal after a damage in a tick
 
         if (Stun >= MaxStun) {
@@ -211,7 +236,12 @@ void UResourceComponent::UpdateHealthDisplay(float health) {
 }
 
 void UResourceComponent::UpdateMaxHealthDisplay(float maxHealth){
-	if (NameplateActor != nullptr) { NameplateActor->SetMaxHealth(maxHealth); }
+        if (NameplateActor != nullptr) {
+                NameplateActor->SetMaxHealth(maxHealth);
+                if (GEngine) {
+                    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("Tried to set the maxHealth of the actor to %s"), *FString::SanitizeFloat(maxHealth)), true);
+                }
+        }
 }
 
 void UResourceComponent::UpdateManaDisplay(float mana){

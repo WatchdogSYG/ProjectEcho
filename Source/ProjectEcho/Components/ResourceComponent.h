@@ -51,7 +51,7 @@ private:
 	
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	float DamageHealth(float magnitude);
-	
+
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	float HealHealth(float magnitude);
 
@@ -60,13 +60,13 @@ private:
 	float MaxMana = 200.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	float DamageMana(float magnitude);
+    float DamageMana(float magnitude);
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	float HealMana(float magnitude);
 
 	//STUN
-	float Stun = 50.0f;
+	float Stun = 10.0f;
 	float MaxStun = 50.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
@@ -74,6 +74,10 @@ private:
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	float HealStun(float magnitude);
+
+	float NaturalStunRegenRate = 10.f;
+    float NaturalStunRegenDelay = 1.5f;
+	float TimeUntilStunRegen= 0.f;
 
 	void Death();
 
