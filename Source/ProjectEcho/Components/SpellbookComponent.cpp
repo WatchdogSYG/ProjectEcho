@@ -46,6 +46,7 @@ USpellbookComponent* USpellbookComponent::InitialiseSpells(
 	
 	//https://forums.unrealengine.com/t/newobject-using-a-blueprint-class/136956/2
 	PrimaryFire = NewObject<ASpell>(this, NAME_None, RF_NoFlags, primaryFire->GetDefaultObject(), true);
+	
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
 			1, 10.0f, FColor::Green,
@@ -59,9 +60,9 @@ USpellbookComponent* USpellbookComponent::InitialiseSpells(
 bool USpellbookComponent::CastPrimaryFire_Implementation(){
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
-			1, 1.0f, FColor::Purple, FString::Printf(
+			1, 10.0f, FColor::Red, FString::Printf(
 				TEXT(
-					"Shoot Primary Fire"
+					"Non-overriden CastPrimaryFire_Implementation() called from base class"
 				)
 			)
 		);
@@ -73,9 +74,9 @@ bool USpellbookComponent::CastPrimaryFire_Implementation(){
 bool USpellbookComponent::CastSecondaryFire_Implementation() {
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
-			1, 1.0f, FColor::Purple, FString::Printf(
+                    1, 10.0f, FColor::Red, FString::Printf(
 				TEXT(
-					"Shoot Secondary Fire"
+					"Non-overriden CastSecondaryFire_Implementation() called from base class"
 				)
 			)
 		);
@@ -86,7 +87,7 @@ bool USpellbookComponent::CastSecondaryFire_Implementation() {
 bool USpellbookComponent::CastAbility1_Implementation(){
         if (GEngine) {
                 GEngine->AddOnScreenDebugMessage(
-                    1, 1.0f, FColor::Purple, FString::Printf(TEXT("Shoot Ability 1")));
+                    1, 10.0f, FColor::Red, FString::Printf(TEXT("Non-overriden CastAbility1_Implementation() called from base class")));
         }
         return true;
 }

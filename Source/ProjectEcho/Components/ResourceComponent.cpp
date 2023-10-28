@@ -31,8 +31,8 @@ UResourceComponent* UResourceComponent::InitialiseResources(float health, float 
 	
 	UpdateMaxHealthDisplay(MaxHealth);
 	UpdateHealthDisplay(Health);
-    UpdateMaxHealthDisplay(MaxStun);
-    UpdateHealthDisplay(Stun);
+    UpdateMaxStunDisplay(MaxStun);
+    UpdateStunDisplay(Stun);
 	return this;
 }
 
@@ -40,40 +40,37 @@ UResourceComponent* UResourceComponent::InitialiseResources(float health, float 
 // Called when the game starts
 void UResourceComponent::BeginPlay(){
 	Super::BeginPlay();
-
+        /*
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
-			1, 15.0f, FColor::Yellow, FString::Printf(
+			INDEX_NONE, 10.0f, FColor::White, FString::Printf(
 				TEXT(
-					"ResourceComponent().UID = %s\n    Set Health = %s\n    Set MaxHealth = %s\n"
+					"ResourceComponent().UID = %s     Set Health = %s     Set MaxHealth = %s"
 				),
 				*FString::Printf(TEXT("[%d]"), this->GetUniqueID()),
 				*FString::SanitizeFloat(Health),
 				*FString::SanitizeFloat(MaxHealth)
-			)
+			),true
 		);
 	}
-	
+	*/
 }
 
 
 // Called every frame
-void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction){
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-        /*
-	if (GEngine) {
-                GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("TimeUntilStunRegen = %s"),*FString::SanitizeFloat(TimeUntilStunRegen));
-        }
+void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+        Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (TimeUntilStunRegen > 0.f) {
-		TimeUntilStunRegen -= DeltaTime;
-        } else if (TimeUntilStunRegen <= 0.f) {
-                Stun -= NaturalStunRegenRate * DeltaTime;
-                UpdateStunDisplay(Stun);
-		}
+        //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("TimeUntilStunRegen = %s"),*FString::SanitizeFloat(TimeUntilStunRegen))); }
 
-		*/
-	// ...
+        //if (TimeUntilStunRegen > 0.f) {
+        //        TimeUntilStunRegen -= DeltaTime;
+        //} else if (TimeUntilStunRegen <= 0.f) {
+        //        //Stun -= NaturalStunRegenRate * DeltaTime;
+        //        //UpdateStunDisplay(Stun);
+        //}
+
 }
 
 //todo check for min/max health, optimise and change fstring instantiators to be in the message function
@@ -114,9 +111,9 @@ void UResourceComponent::DamageEventCallout(EDamageCategory category, float x1, 
 
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(
-			-1,
-			15.f,
-			FColor::Yellow,
+			INDEX_NONE,
+			5.f,
+			FColor::Blue,
 			s,
 			true);
 	}
@@ -229,41 +226,47 @@ void UResourceComponent::Death() {
 	if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("YOU DIED")), true); }
 }
 
-void UResourceComponent::UpdateHealthDisplay(float health) {
-	//UTextBlock* text = (UTextBlock*)DisplayWidget->GetWidget()->GetWidgetFromName(TEXT("HealthText"));
+//UTextBlock* text = (UTextBlock*)DisplayWidget->GetWidget()->GetWidgetFromName(TEXT("HealthText"));
 	//text->SetText(FText::FromString(string));
-	if (NameplateActor != nullptr) { NameplateActor->SetHealth(health); }
+
+void UResourceComponent::UpdateHealthDisplay(float health) {
+        if (NameplateActor != nullptr) {
+                NameplateActor->SetHealth(health);
+                //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("tried to set the health display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(health)), true); }
+        }
 }
 
 void UResourceComponent::UpdateMaxHealthDisplay(float maxHealth){
         if (NameplateActor != nullptr) {
                 NameplateActor->SetMaxHealth(maxHealth);
-                if (GEngine) {
-                    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("Tried to set the maxHealth of the actor to %s"), *FString::SanitizeFloat(maxHealth)), true);
-                }
+                //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the maxHealth display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(maxHealth)), true); }
         }
 }
 
 void UResourceComponent::UpdateManaDisplay(float mana){
-        if (NameplateActor != nullptr) {
-                NameplateActor->SetMana(mana);
-        }
+         if (NameplateActor != nullptr) {
+                 NameplateActor->SetMana(mana);
+                 //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the mana display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(mana)), true); }
+         }
 }
 
 void UResourceComponent::UpdateMaxManaDisplay(float maxMana){
-        if (NameplateActor != nullptr) {
-                NameplateActor->SetMaxMana(maxMana);
-        }
+         if (NameplateActor != nullptr) {
+                 NameplateActor->SetMaxMana(maxMana);
+                 //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the maxMana display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(maxMana)), true); }
+         }
 }
 
 void UResourceComponent::UpdateStunDisplay(float stun){
         if (NameplateActor != nullptr) {
                 NameplateActor->SetStun(stun);
+                //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the stun display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(stun)), true); }
         }
 }
 
 void UResourceComponent::UpdateMaxStunDisplay(float maxStun){
         if (NameplateActor != nullptr) {
                 NameplateActor->SetMaxStun(maxStun);
+                //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the maxStun display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(maxStun)), true); }
         }
 }

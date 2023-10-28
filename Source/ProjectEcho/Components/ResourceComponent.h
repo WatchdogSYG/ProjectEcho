@@ -87,16 +87,17 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 	void UpdateMaxHealthDisplay(float maxHealth);
 
-		UFUNCTION(BlueprintCallable, Category = "Resources")
+	UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateManaDisplay(float mana);
 
-        UFUNCTION(BlueprintCallable, Category = "Resources")
+    UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateMaxManaDisplay(float maxMana);
 
-			UFUNCTION(BlueprintCallable, Category = "Resources")
+	UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateStunDisplay(float stun);
 
         UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateMaxStunDisplay(float maxStun);
+
 	ANameplateActor* NameplateActor;
 };
