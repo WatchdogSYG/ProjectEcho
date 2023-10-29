@@ -50,42 +50,46 @@ private:
 	float MaxHealth = 100.0f;
 	
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	float DamageHealth(float magnitude);
+		float DamageHealth(float magnitude);
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	float HealHealth(float magnitude);
+		float HealHealth(float magnitude);
 
 	//MANA
 	float Mana = 100.0f;
 	float MaxMana = 200.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-    float DamageMana(float magnitude);
+		float DamageMana(float magnitude);
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	float HealMana(float magnitude);
+		float HealMana(float magnitude);
 
 	//STUN
 	float Stun = 10.0f;
 	float MaxStun = 50.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	float DamageStun(float magnitude);
+		float DamageStun(float magnitude);
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	float HealStun(float magnitude);
+		float HealStun(float magnitude);
 
-	float NaturalStunRegenRate = 10.f;
+	bool RegenStun = false;
+	float NaturalStunRegenRate = 20.f;
     float NaturalStunRegenDelay = 1.5f;
 	float TimeUntilStunRegen= 0.f;
 
 	void Death();
 
+	//DISPLAY
+
+	ANameplateActor* NameplateActor;
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	void UpdateHealthDisplay(float health);
+		void UpdateHealthDisplay(float health);
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
-	void UpdateMaxHealthDisplay(float maxHealth);
+		void UpdateMaxHealthDisplay(float maxHealth);
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateManaDisplay(float mana);
@@ -96,8 +100,6 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateStunDisplay(float stun);
 
-        UFUNCTION(BlueprintCallable, Category = "Resources")
+    UFUNCTION(BlueprintCallable, Category = "Resources")
         void UpdateMaxStunDisplay(float maxStun);
-
-	ANameplateActor* NameplateActor;
 };

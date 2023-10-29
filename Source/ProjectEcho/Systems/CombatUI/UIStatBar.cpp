@@ -48,7 +48,10 @@ void UUIStatBar::NativeOnInitialized() {
 	CurrentValue = CurrentPct * MaxValue;
 
 	AnimationDuration = 0.3f;
-	SecondaryBarDelay = 0.7f;
+	SecondaryBarDelay = 0.9f;
+
+	MicroEventMagnitudeThreshold = 0.005f;
+    MicroEventAnimationDuration = 0.01f;
 
 	ConfigurationChanged = true;	//must be true when initialised so that the first tick knows to can assign a bar to FrontBar and BackBar
 	DownConfiguration = true;
@@ -82,7 +85,12 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 			if (HitQueue.Dequeue(event)) {
 				SecondaryTargetPct = event.SetPct;
 				SecondaryOriginalPct = SecondaryCurrentPct;
-				RemainingSecondaryAnimationTime = AnimationDuration;
+				//Handle DOT or microevents lagging the queue
+				if (event.SetPct <= MicroEventMagnitudeThreshold) {
+                     RemainingSecondaryAnimationTime = MicroEventAnimationDuration;
+                } else {
+                     RemainingSecondaryAnimationTime = AnimationDuration;
+                }
 				//do we need to adjust for the inter-tick delta between (GetWorld()->GetTimeSeconds() - HitQueue.Peek()->EventTime) and (SecondaryBarDelay)? Not for now.
 			} else {
 				//we deqd nothing! This should never happen due to the peek() check
@@ -199,10 +207,10 @@ void UUIStatBar::SetPercent(float percent) {
 
 	OriginalPct = CurrentPct;
 
-	//set the target percentage do instantaneously update the interpolation rate
+	//set the target percentage to instantaneously update the interpolation rate
 	TargetPct = FMath::Clamp(percent, 0.f, 1.f);
 
-	//DISCRETE mode updates the display upon every  input, and not continuously
+	//DISCRETE mode updates the text display upon every  input, and not continuously
 	if (Mode == TextUpdateMode::DISCRETE) {
 		UpdateText();
 	}

@@ -62,15 +62,25 @@ void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 {
         Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-        //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("TimeUntilStunRegen = %s"),*FString::SanitizeFloat(TimeUntilStunRegen))); }
+        //if (GEngine) { GEngine->AddOnScreenDebugMessage(INDEX_NONE, 10.f, FColor::Green, FString::Printf(TEXT("TimeUntilStunRegen = %s"),*FString::SanitizeFloat(TimeUntilStunRegen)),true); }
 
-        //if (TimeUntilStunRegen > 0.f) {
-        //        TimeUntilStunRegen -= DeltaTime;
-        //} else if (TimeUntilStunRegen <= 0.f) {
-        //        //Stun -= NaturalStunRegenRate * DeltaTime;
-        //        //UpdateStunDisplay(Stun);
-        //}
+		// 1. Check if we are waiting to regen stun
+		// 2. Check if Stun needs to be regend
+        RegenStun = true;
+		
+        if (TimeUntilStunRegen > 0.f) {
+            TimeUntilStunRegen -= DeltaTime;
+            RegenStun = false;
+        }
+		
+		if (Stun == 0) {
+            RegenStun = false;
+        }
 
+		if (RegenStun) {
+            HealStun(NaturalStunRegenRate * DeltaTime);
+            UpdateStunDisplay(Stun);
+		}
 }
 
 //todo check for min/max health, optimise and change fstring instantiators to be in the message function
@@ -177,7 +187,7 @@ float UResourceComponent::HealMana(float magnitude) {
 	return 0.0f;
 }
 
-float UResourceComponent::DamageStun(float magnitude) {
+float UResourceComponent::HealStun(float magnitude) {
 	        // Get State before
         float s1 = Stun;
 
@@ -195,7 +205,7 @@ float UResourceComponent::DamageStun(float magnitude) {
         return s1 - Stun; // return the actual damage dealt
 }
 
-float UResourceComponent::HealStun(float magnitude) {
+float UResourceComponent::DamageStun(float magnitude) {
 		//Set time for Natural Stun Regen
         TimeUntilStunRegen = NaturalStunRegenDelay;
         // Get State before
@@ -216,7 +226,7 @@ float UResourceComponent::HealStun(float magnitude) {
 
         Stun = FMath::Clamp(Stun, 0.f, MaxStun);
 
-        DamageEventCallout(EDamageCategory::STUN, s1, Stun);
+		if (!RegenStun) { DamageEventCallout(EDamageCategory::STUN, s1, Stun); }
 
         return Stun - s1; // return the actual damage healed
 }

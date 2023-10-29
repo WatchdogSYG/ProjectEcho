@@ -138,6 +138,12 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Animation")
 		float AnimationDuration;	//The animation duration.
 
+	UPROPERTY(EditAnywhere, Category = "Animation")
+        float MicroEventMagnitudeThreshold; // The threshold definitoin for microevents
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+        float MicroEventAnimationDuration; // The animation duration for microevents
+
 	float RemainingAnimationTime;	//The remaining animation time. Resets upon setting a new CurrentValue;
 	float RemainingSecondaryAnimationTime;
 
@@ -149,7 +155,7 @@ private:
 
 		//a struct that records when the resource is +- and when it happens
 	struct ResourceEvent {
-		float	SetPct;				//the magnitude of the resource being taken
+		float	SetPct;			//the magnitude of the resource being taken
 		float	EventTime;		//the time at which it happened. TODO: determine how I will keep track of relative time/absolute time.
 	};
 
@@ -169,11 +175,9 @@ private:
 
 	bool DisplayMaxValue;
 
-
 	float EventTime;
 	float SecondaryBarDelay;
 	bool SecondaryBarAnimating;
-
 
 	void UpdateText();
 
