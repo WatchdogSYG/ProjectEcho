@@ -108,6 +108,8 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 	//----------------------------------------------------------------
 	//Thirdly, configure the bars
 	//Check if the config changed first before the next if..else so that we only format the bars when needed instead of every tick
+	
+	/*
 	if (CurrentPct <= SecondaryCurrentPct) {// DownConfiguration
 		if (!DownConfiguration) {
 			DownConfiguration = true;
@@ -138,6 +140,10 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 	}
 
 	ConfigurationChanged = false; //reset the configuration flag for the next tick
+	*/
+
+	FrontBar = PrimaryBar;
+    BackBar = SecondaryBar;
 
 	//----------------------------------------------------------------
 	//Fourthly, interpolate the values if needed
@@ -267,6 +273,7 @@ float UUIStatBar::InterpolateProgress(UProgressBar* bar, float originalPct, floa
 }
 
 void UUIStatBar::UpdateText() {
+        /*
 	if (DisplayMaxValue) {
 		HealthTextBlock->SetText(FText::FromString(
 			FString::FromInt((int)CurrentValue) + FString(" / ") + FString::FromInt((int)MaxValue)));// +FString("\n") +
@@ -275,6 +282,6 @@ void UUIStatBar::UpdateText() {
 		HealthTextBlock->SetText(FText::FromString(
 			FString::FromInt((int)CurrentValue)));// +FString("\n") +
 			//FString::FromInt((int)SecondaryCurrentValue)));
-	}
+	}*/
 }
 

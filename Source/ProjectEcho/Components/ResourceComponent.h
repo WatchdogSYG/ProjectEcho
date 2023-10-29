@@ -46,8 +46,8 @@ private:
 	void DamageEventCallout(EDamageCategory category, float x1, float x2);
 	
 	//HEALTH
-	float Health = 100.0f;
-	float MaxHealth = 100.0f;
+	float Health = 0.0f;
+	float MaxHealth = 200.0f;
 	
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 		float DamageHealth(float magnitude);
@@ -56,7 +56,7 @@ private:
 		float HealHealth(float magnitude);
 
 	//MANA
-	float Mana = 100.0f;
+	float Mana = 0.0f;
 	float MaxMana = 200.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
@@ -66,8 +66,8 @@ private:
 		float HealMana(float magnitude);
 
 	//STUN
-	float Stun = 10.0f;
-	float MaxStun = 50.0f;
+	float Stun = 0.0f;
+	float MaxStun = 300.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 		float DamageStun(float magnitude);
@@ -76,7 +76,7 @@ private:
 		float HealStun(float magnitude);
 
 	bool RegenStun = false;
-	float NaturalStunRegenRate = 20.f;
+	float NaturalStunRegenRate = 40.f;
     float NaturalStunRegenDelay = 1.5f;
 	float TimeUntilStunRegen= 0.f;
 

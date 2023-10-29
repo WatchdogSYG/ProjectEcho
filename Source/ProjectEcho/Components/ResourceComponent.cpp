@@ -200,7 +200,7 @@ float UResourceComponent::HealStun(float magnitude) {
 
         Stun = FMath::Clamp(Stun, 0.f, MaxStun);
 
-        DamageEventCallout(EDamageCategory::STUN, s1, Stun);
+        if (!RegenStun) { DamageEventCallout(EDamageCategory::STUN, s1, Stun); }
 
         return s1 - Stun; // return the actual damage dealt
 }
@@ -226,7 +226,7 @@ float UResourceComponent::DamageStun(float magnitude) {
 
         Stun = FMath::Clamp(Stun, 0.f, MaxStun);
 
-		if (!RegenStun) { DamageEventCallout(EDamageCategory::STUN, s1, Stun); }
+		DamageEventCallout(EDamageCategory::STUN, s1, Stun);
 
         return Stun - s1; // return the actual damage healed
 }

@@ -50,7 +50,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UProgressBar* PrimaryBar;
 
-	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	//UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UTextBlock* HealthTextBlock;
 
 protected:
@@ -98,7 +98,7 @@ private:
 	
 	//Default Colours
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true), Category = "Display")
-	FColor MainColor;
+    FColor MainColor;
         UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true), Category = "Display")
 	FColor DownColor;
         UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true), Category = "Display")
