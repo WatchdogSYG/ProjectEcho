@@ -30,8 +30,14 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
         void SetStun(const float& value);
 
-     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
         void SetMaxStun(const float& value);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+        void SetName(const FString& name);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
+        void SetText(const FString& text);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Resources")
 		void SetVisibility(const bool visibility);

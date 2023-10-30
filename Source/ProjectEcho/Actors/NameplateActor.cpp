@@ -21,7 +21,12 @@ void ANameplateActor::SetStun_Implementation(const float& value){ if (GEngine) {
 
 void ANameplateActor::SetMaxStun_Implementation(const float& value){ if (GEngine) {GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString("ANameplateActor::SetMaxStun(const float& value) called from base class!")); } }
 
+void ANameplateActor::SetName_Implementation(const FString& name){ if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString("ANameplateActor::SetName(const FString& name) called from base class!")); } }
+
+void ANameplateActor::SetText_Implementation(const FString& text){ if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString("ANameplateActor::SetText(const FString& text) called from base class!")); } }
+
 void ANameplateActor::SetVisibility_Implementation(const bool visibility){ if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString("ANameplateActor::SetVisibility(const bool vsibility) called from base class!")); } }
+
 
 // Called when the game starts or when spawned
 void ANameplateActor::BeginPlay()
