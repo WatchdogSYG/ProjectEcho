@@ -17,7 +17,7 @@ UResourceComponent::UResourceComponent(){
 }
 
 
-UResourceComponent* UResourceComponent::InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor = nullptr){
+UResourceComponent* UResourceComponent::InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor = nullptr, UEchoCombatHUD* hud = nullptr){
 	Health = health;
 	MaxHealth = maxHealth;
     Mana = mana;
@@ -25,12 +25,15 @@ UResourceComponent* UResourceComponent::InitialiseResources(float health, float 
     Stun = stun;
     MaxStun = maxStun;
 	NameplateActor = nameplateActor;
+    HUD = hud;
 	
 	if (NameplateActor != nullptr) { NameplateActor->AttachToActor(this->GetOwner(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, false)); }
 	//TODO default nameplateActor
 	
 	UpdateMaxHealthDisplay(MaxHealth);
 	UpdateHealthDisplay(Health);
+    UpdateMaxManaDisplay(MaxMana);
+    UpdateManaDisplay(Mana);
     UpdateMaxStunDisplay(MaxStun);
     UpdateStunDisplay(Stun);
 	return this;
@@ -56,7 +59,6 @@ void UResourceComponent::BeginPlay(){
 	*/
 }
 
-
 // Called every frame
 void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
@@ -81,6 +83,27 @@ void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
             HealStun(NaturalStunRegenRate * DeltaTime);
             UpdateStunDisplay(Stun);
 		}
+
+
+		RegenMana = true;
+
+        if (TimeUntilManaRegen > 0.f) {
+            TimeUntilManaRegen -= DeltaTime;
+            RegenMana = false;
+         }
+
+        if (GEngine) {
+            GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("TimeUntilManaRegen = %s"),*FString::SanitizeFloat(TimeUntilManaRegen)));
+         }
+
+         if (Mana == MaxMana) {
+            RegenMana = false;
+         }
+
+          if (RegenMana) {
+              HealMana(NaturalManaRegenRate * DeltaTime);
+              UpdateManaDisplay(Mana);
+          }
 }
 
 //todo check for min/max health, optimise and change fstring instantiators to be in the message function
@@ -170,7 +193,7 @@ float UResourceComponent::HealHealth(float magnitude) {
 
 	if (Health <= 0.f) { Death(); }//keep this here in case there is a heal after a damage in a tick
 
-	if (Health >= MaxHealth) { if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("MAX HEALTH!")); } }
+	//if (Health >= MaxHealth) { if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("MAX HEALTH!")); } }
 
 	Health = FMath::Clamp(Health, 0.f, MaxHealth);
 
@@ -180,11 +203,48 @@ float UResourceComponent::HealHealth(float magnitude) {
 }
 
 float UResourceComponent::DamageMana(float magnitude) {
-	return 0.0f;
+        // Set time for Natural Stun Regen
+        TimeUntilManaRegen = NaturalManaRegenDelay;
+
+    // Get State before
+        float m1 = Mana;
+
+        // increment health
+        Mana -= FMath::Abs(magnitude);
+
+        if (Mana <= 0.f) {
+                //Death();
+        }
+
+        Mana = FMath::Clamp(Mana, 0.f, MaxMana);
+
+        DamageEventCallout(EDamageCategory::MANA, m1, Mana);
+
+        return m1 - Mana; // return the actual damage dealt
 }
 
 float UResourceComponent::HealMana(float magnitude) {
-	return 0.0f;
+        // Get State before
+        float m1 = Mana;
+
+        // increment Mana
+        Mana += FMath::Abs(magnitude);
+
+        if (Mana <= 0.f) {
+                //Death();
+        } // keep this here in case there is a heal after a damage in a tick
+
+        if (Mana >= MaxMana) {
+                if (GEngine) {
+                    //GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("MAX HEALTH!"));
+                }
+        }
+
+        Mana = FMath::Clamp(Mana, 0.f, MaxMana);
+
+        DamageEventCallout(EDamageCategory::MANA, m1, Mana);
+
+        return Mana - m1; // return the actual damage healed
 }
 
 float UResourceComponent::HealStun(float magnitude) {
@@ -220,7 +280,7 @@ float UResourceComponent::DamageStun(float magnitude) {
 
         if (Stun >= MaxStun) {
                 if (GEngine) {
-                    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("MAX Stun!"));
+                    //GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString("MAX Stun!"));
                 }
         }
 
@@ -239,17 +299,33 @@ void UResourceComponent::Death() {
 //UTextBlock* text = (UTextBlock*)DisplayWidget->GetWidget()->GetWidgetFromName(TEXT("HealthText"));
 	//text->SetText(FText::FromString(string));
 
-void UResourceComponent::UpdateHealthDisplay(float health) {
+UEchoCombatHUD* UResourceComponent::LinkHUD(UEchoCombatHUD* hud)
+{
+        HUD = hud;
+        return hud;
+}
+
+void UResourceComponent::UpdateHealthDisplay(float health)
+{
         if (NameplateActor != nullptr) {
                 NameplateActor->SetHealth(health);
                 //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("tried to set the health display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(health)), true); }
         }
+
+        if (HUD != nullptr) {
+                HUD->SetHealth(health);
+        }
+
 }
 
 void UResourceComponent::UpdateMaxHealthDisplay(float maxHealth){
         if (NameplateActor != nullptr) {
                 NameplateActor->SetMaxHealth(maxHealth);
                 //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the maxHealth display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(maxHealth)), true); }
+        }
+
+        if (HUD != nullptr) {
+                HUD->SetMaxHealth(maxHealth);
         }
 }
 
@@ -258,12 +334,20 @@ void UResourceComponent::UpdateManaDisplay(float mana){
                  NameplateActor->SetMana(mana);
                  //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the mana display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(mana)), true); }
          }
+
+         if (HUD != nullptr) {
+                 HUD->SetMana(mana);
+         }
 }
 
 void UResourceComponent::UpdateMaxManaDisplay(float maxMana){
          if (NameplateActor != nullptr) {
                  NameplateActor->SetMaxMana(maxMana);
                  //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the maxMana display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(maxMana)), true); }
+         }
+
+         if (HUD != nullptr) {
+             HUD->SetMaxMana(maxMana);
          }
 }
 
@@ -272,11 +356,18 @@ void UResourceComponent::UpdateStunDisplay(float stun){
                 NameplateActor->SetStun(stun);
                 //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the stun display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(stun)), true); }
         }
+
+        if (HUD != nullptr) {
+                HUD->SetStun(stun);
+        }
 }
 
 void UResourceComponent::UpdateMaxStunDisplay(float maxStun){
         if (NameplateActor != nullptr) {
                 NameplateActor->SetMaxStun(maxStun);
                 //if (GEngine) { GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::White, FString::Printf(TEXT("Tried to set the maxStun display of [%s] to %s"), *GetOwner()->GetName(), *FString::SanitizeFloat(maxStun)), true); }
+        }
+        if (HUD != nullptr) {
+                HUD->SetMaxStun(maxStun);
         }
 }

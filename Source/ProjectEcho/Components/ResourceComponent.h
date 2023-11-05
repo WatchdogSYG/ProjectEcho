@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "Components/WidgetComponent.h"
 #include "../Actors/NameplateActor.h"
+#include "../Systems/CombatUI/EchoCombatHUD.h"
 
 #include "ResourceComponent.generated.h"
 
@@ -27,7 +28,7 @@ public:
 	UResourceComponent();
 
 	UFUNCTION(BlueprintCallable, Category = "Constructor")
-        UResourceComponent* InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor);
+        UResourceComponent* InitialiseResources(float health, float maxHealth, float mana, float maxMana, float stun, float maxStun, ANameplateActor* nameplateActor, UEchoCombatHUD* hud);
 
 protected:
 	// Called when the game starts
@@ -65,6 +66,12 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 		float HealMana(float magnitude);
 
+	bool RegenMana = false;
+	float TimeUntilManaRegen = 0.f;
+    float NaturalManaRegenRate = 40.f;
+    float NaturalManaRegenDelay = 1.0f;
+    
+
 	//STUN
 	float Stun = 0.0f;
 	float MaxStun = 300.0f;
@@ -76,15 +83,22 @@ private:
 		float HealStun(float magnitude);
 
 	bool RegenStun = false;
-	float NaturalStunRegenRate = 40.f;
-    float NaturalStunRegenDelay = 1.5f;
 	float TimeUntilStunRegen= 0.f;
+	float NaturalStunRegenRate = 40.f;
+    float NaturalStunRegenDelay = 1.0f;
+	
 
 	void Death();
 
 	//DISPLAY
 
 	ANameplateActor* NameplateActor;
+
+	UEchoCombatHUD* HUD;
+
+	UFUNCTION(BlueprintCallable, Category = "Initialisation")
+        UEchoCombatHUD* LinkHUD(UEchoCombatHUD* hud);
+
 	UFUNCTION(BlueprintCallable, Category = "Resources")
 		void UpdateHealthDisplay(float health);
 
