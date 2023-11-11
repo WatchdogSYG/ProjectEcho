@@ -68,7 +68,7 @@ private:
 
 	bool RegenMana = false;
 	float TimeUntilManaRegen = 0.f;
-    float NaturalManaRegenRate = 40.f;
+    float NaturalManaRegenRate = 30.f;
     float NaturalManaRegenDelay = 1.0f;
     
 

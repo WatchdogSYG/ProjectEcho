@@ -79,18 +79,16 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 
 	//----------------------------------------------------------------
 	//Firstly, see if enough time has passed to input a ResourceEvent into the secondary Bar
-	if (HitQueue.Peek() != nullptr) {
-		if (GetWorld()->GetTimeSeconds() - HitQueue.Peek()->EventTime > SecondaryBarDelay) {
+	if (PrimaryHistoryQueue.Peek() != nullptr) {
+		if (GetWorld()->GetTimeSeconds() - PrimaryHistoryQueue.Peek()->EventTime > SecondaryBarDelay) {
 			ResourceEvent event;
-			if (HitQueue.Dequeue(event)) {
-				SecondaryTargetPct = event.SetPct;
-				SecondaryOriginalPct = SecondaryCurrentPct;
-				//Handle DOT or microevents lagging the queue
-				if (event.SetPct <= MicroEventMagnitudeThreshold) {
-                     RemainingSecondaryAnimationTime = MicroEventAnimationDuration;
-                } else {
-                     RemainingSecondaryAnimationTime = AnimationDuration;
-                }
+			if (PrimaryHistoryQueue.Dequeue(event)) {
+				SetProgress(SecondaryBar, event.SetPct);
+
+				//SecondaryOriginalPct = SecondaryCurrentPct;
+				
+				//RemainingSecondaryAnimationTime = AnimationDuration;
+                
 				//do we need to adjust for the inter-tick delta between (GetWorld()->GetTimeSeconds() - HitQueue.Peek()->EventTime) and (SecondaryBarDelay)? Not for now.
 			} else {
 				//we deqd nothing! This should never happen due to the peek() check
@@ -146,7 +144,7 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
     BackBar = SecondaryBar;
 
 	//----------------------------------------------------------------
-	//Fourthly, interpolate the values if needed
+	//Fourthly, interpolate the values if needed and process the DOTQueue
 	if (CurrentPct != TargetPct) {
 		CurrentPct = InterpolateProgress(FrontBar, OriginalPct, TargetPct, RemainingAnimationTime, AnimationDuration);
 		CurrentValue = CurrentPct * MaxValue;
@@ -160,6 +158,8 @@ void UUIStatBar::NativeTick(const FGeometry& MyGeometry, float DeltaTime) {
 	} else {
 		SecondaryOriginalPct = SecondaryTargetPct;
 	}
+
+	PrimaryHistoryQueue.Enqueue(ResourceEvent{ CurrentPct, GetWorld()->GetTimeSeconds() });
 
 	//----------------------------------------------------------------
 	//Finally, update the displayed text if required
@@ -202,11 +202,11 @@ void UUIStatBar::SetMaxValue(float newMaxValue, BarTransformationMode method) {
 /*
 * Just converts the arg to a percentage and passes it to SetPercent(float percent);
 */
-void UUIStatBar::SetValue(float value) {
-	SetPercent(value / MaxValue);
+void UUIStatBar::SetValue(float value, float duration = 0.f) {
+	SetPercent(value / MaxValue, duration);
 }
 
-void UUIStatBar::SetPercent(float percent) {
+void UUIStatBar::SetPercent(float percent, float duration = 0.f) {
 
 	//resets the animation timer
 	RemainingAnimationTime = AnimationDuration;
@@ -223,7 +223,7 @@ void UUIStatBar::SetPercent(float percent) {
 
 	//insert the change request in the queue for dynamics and lag
 	EventTime = GetWorld()->GetTimeSeconds();
-	HitQueue.Enqueue(ResourceEvent{ TargetPct, EventTime });
+	HitQueue.Enqueue(ResourceEvent{ TargetPct, EventTime , duration });
 }
 
 float UUIStatBar::GetMaxValue(){
@@ -269,6 +269,12 @@ float UUIStatBar::InterpolateProgress(UProgressBar* bar, float originalPct, floa
 
 	bar->SetPercent(NewPercent);
 
+	return NewPercent;
+}
+
+float UUIStatBar::SetProgress(UProgressBar* bar, float targetPct) {
+	float NewPercent = FMath::Clamp(targetPct, 0.f, 1.f);
+	bar->SetPercent(NewPercent);
 	return NewPercent;
 }
 

@@ -67,13 +67,13 @@ public:
 	////////////////////////////////////////////////////////////////
 
 	UFUNCTION(BlueprintCallable)
-		void SetValue(float value);
+		void SetValue(float value, float duration);
 
 	UFUNCTION(BlueprintCallable)
 		void SetMaxValue(float value, BarTransformationMode method);
 
 	UFUNCTION(BlueprintCallable)
-		void SetPercent(float value);
+		void SetPercent(float value, float duration);
 
 	UFUNCTION(BlueprintCallable)
 		float GetMaxValue();
@@ -157,15 +157,18 @@ private:
 	struct ResourceEvent {
 		float	SetPct;			//the magnitude of the resource being taken
 		float	EventTime;		//the time at which it happened. TODO: determine how I will keep track of relative time/absolute time.
+		float	Duration = 0.f;		//Positive only. The time it takes to apply the effect. If Duration > 0, the damage is applied as Damage Over Time while processed in the DOTQueue.
 	};
 
 	TQueue< ResourceEvent, EQueueMode::Mpsc > HitQueue; //A queue which will store all events where a resource changed, and is deq'd as the progress bar animates.
+	TQueue< ResourceEvent > PrimaryHistoryQueue;
 
 	////////////////////////////////////////////////////////////////
 	//  UI CONTROL FUNCTIONS
 	////////////////////////////////////////////////////////////////
 
 	float InterpolateProgress(UProgressBar* bar, float originalPct, float targetPct, float rem, float dur);
+	float SetProgress(UProgressBar* bar, float targetPct);
 
 	////////////////////////////////////////////////////////////////
 	//  OPTIONS
